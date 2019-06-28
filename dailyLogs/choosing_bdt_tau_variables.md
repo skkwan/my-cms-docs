@@ -5,6 +5,7 @@
 ### Revisiting previously trained BDT on tau DYLL file
 - In `outfile_tau_dyll_BDT`, we can see that I trained on l1Pt, l1Eta, l1Phi, l1Time, l1Iso, l1Iso_time, track12DZ, track13DZ, track1PVDZ, track2PVDZ, track3PVDZ, track1nStubs, track2nStubs, track1Time, track2Time, track3Time, l1DecayMode, track1ChiSquared, track2ChiSquared, track3ChiSquared, zVTX, track1Z, track2Z, track3Z, tauL1StripPt, tauL1StripEta, tauL1StripDR, pfCand1HoE,  pfCand2Hoe, pfCand3HoE, tauL1nEG, tauL1EGPt, l1TauEGTime.
 - The variable rankings are:
+
 | Rank | Variable         | Variable Importance |
 |------|------------------|---------------------|
 | 1    | l1Pt             | 6.555e-02           |
@@ -17,6 +18,7 @@
 | 8    | track1PVDZ       | 5.328e-02           |
 | 9    | track1Z          | 5.303e-02           |
 | 10   | tauL1StripDR     | 5.182e-02           |
+
 The plots of these variables are in commit 6ac93f2 - should add these to weekly meeting slides
 
 ```https://github.com/skkwan/phase2L1BTagAnalyzer/tree/master/tau_exercise/plot_tau_features/validationPlots/dyll_root```
@@ -24,6 +26,7 @@ The plots of these variables are in commit 6ac93f2 - should add these to weekly 
 - In `TMVAAnalysis_tau.C`, I am currently defining signal to be genPt > 20 and all background to be genPt < 20. This is ok because gen variables are from MC, and we're interested in the l1 variables.
 - signalCut and backgroundCut are both pfCand2HoE < 20 && pfCand3HoE < 20 && l1TauEGTime < 30.
 - The new variable rankings are:
+
 | Rank | Variable         | Variable Importance |
 |------|------------------|---------------------|
 | 1    | l1Eta            | 2.249e-01           |
@@ -32,7 +35,8 @@ The plots of these variables are in commit 6ac93f2 - should add these to weekly 
 | 4    | zVTX             | 1.913e-01           |
 | 5    | l1Time           | 1.899e-01           |
 
-- And the other information is:
+- And the other information is: (open this in a text editor to properly read it)
+
 <HEADER> TFHandler_BDT            :         Variable                Mean                RMS        [        Min                Max ]
                          : ---------------------------------------------------------------------------------------------------
                          :             l1Pt:            17.946            27.771   [            5.2514            6349.5 ]
@@ -64,6 +68,7 @@ The plots of these variables are in commit 6ac93f2 - should add these to weekly 
 
 - Now in a position to decide on variable binning. Previously we decided that anything with pT > 100 GeV should be accepted. Anything below pT < 20 GeV should be rejected (because jet fake rates are super high at low pT).
 - For example:
+
 | Variable | Range         | Discriminant value | Value used to calculate the discriminant |
 |----------|---------------|--------------------|------------------------------------------|
 | l1Pt     | 0 - 20 GeV    | 0                  | N/A                                      |
