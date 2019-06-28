@@ -66,13 +66,36 @@ The plots of these variables are in commit 6ac93f2 - should add these to weekly 
 <HEADER> Dataset:dataset          : Created tree 'TrainTree' with 56169 events
 
 
-- Now in a position to decide on variable binning. Previously we decided that anything with pT > 100 GeV should be accepted. Anything below pT < 20 GeV should be rejected (because jet fake rates are super high at low pT).
+## Variable binning
+- As a side note, typically an offline cut with require that pT > 100 GeV should be accepted and anything below pT < 20 GeV should be rejected (because jet fake rates are super high at low pT), but we should not exclude l1Pt < 20 GeV from training/ algorithm development.
+
 - For example:
 
 | Variable | Range         | Discriminant value | Value used to calculate the discriminant |
 |----------|---------------|--------------------|------------------------------------------|
-| l1Pt     | 0 - 20 GeV    | 0                  | N/A                                      |
+| l1Pt     | 0 - 20 GeV    | ?                  | 10 GeV                                   |
 | l1Pt     | 20 - 50 GeV   | ?                  | 35 GeV                                   |
 | l1Pt     | 50 - 100 GeV  | ?                  | 75 GeV                                   |
-| l1Pt     | 100 - 500 GeV | 1                  | N/A                                      |
+| l1Pt     | 100 - 500 GeV | ?                  | 300 GeV                                  |
 
+Looking at [this plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Eta.png) (commit d7c97ec), I arbitrarily decided this initial binning:
+
+| Variable | Range        | Discriminant value | Value used to calculate the discriminant |
+|----------|--------------|--------------------|------------------------------------------|
+| l1Eta    | -3.0 to -1.5 | ?                  | -2.25                                    |
+| l1Eta    | -1.5 to 0.0  | ?                  | -0.75                                    |
+| l1Eta    | 0.0 to +1.5  | ?                  | +0.75                                    |
+| l1Eta    | +1.5 to +3.0 | ?                  | +2.25                                    |
+
+
+
+
+- Once I determine variable binning, I need to make an n-tuple with custom entries and values. 
+   * Look for a TMVA method that applies the trained BDT's weights
+   * Make TTree with (n1 * n2 * n3 etc.) entries.
+
+- Ideally the options supported are:
+   - A flag that changes what value to put in the n-tuple (midpoint vs. upper point vs. endpoint?)
+   - Will add more as I think of them.
+
+- 
