@@ -71,3 +71,4 @@ The ranges are just chosen so that the midpoints are 0, 1, and 10.
 | l1DecayMode | 0.5 to 1.5  | ?                  | 1                                        |
 | l1DecayMode | 9.5 to 10.5 | ?                  | 10                                       |
 
+
