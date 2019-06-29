@@ -36,6 +36,8 @@ The plots of these variables are in commit 6ac93f2 - should add these to weekly 
 | 5    | l1Time           | 1.899e-01           |
 
 - And the other information is: (open this in a text editor to properly read it)
+<details><summary>Variable mean, RMS, min, max; ROC integration, testing efficiency</summary>
+<p>
 
 <HEADER> TFHandler_BDT            :         Variable                Mean                RMS        [        Min                Max ]
                          : ---------------------------------------------------------------------------------------------------
@@ -65,6 +67,8 @@ The plots of these variables are in commit 6ac93f2 - should add these to weekly 
                          :
 <HEADER> Dataset:dataset          : Created tree 'TrainTree' with 56169 events
 
+</p>
+</details>
 
 ## Variable binning
 - As a side note, typically an offline cut with require that pT > 100 GeV should be accepted and anything below pT < 20 GeV should be rejected (because jet fake rates are super high at low pT), but we should not exclude l1Pt < 20 GeV from training/ algorithm development.
@@ -98,4 +102,103 @@ Looking at [this plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel
    - A flag that changes what value to put in the n-tuple (midpoint vs. upper point vs. endpoint?)
    - Will add more as I think of them.
 
-- 
+ 
+## Choosing BDT variables (Saturday June 29, 2019)
+
+- Isobel suggests using *l1Pt, l1Eta, track1ChiSquared, tauL1StripPt, and l1DecayMode*.
+- Re-trained BDT (commit `03e5cfe`)
+<details><summary>Variable mean, RMS, min, max; ROC integration, testing efficiency</summary>
+<p>
+
+<HEADER> TFHandler_BDT            :         Variable                Mean                RMS        [        Min                Max ]
+                         : ---------------------------------------------------------------------------------------------------
+                         :             l1Pt:            17.847            7.7375   [            5.2514            668.00 ]
+                         :            l1Eta:         0.0092128            1.9602   [           -2.5923            2.5906 ]
+                         :     tauL1StripPt:            13.731            30.479   [            0.0000            6347.0 ]
+                         : track1ChiSquared:            29.784            23.708   [          0.031723            145.84 ]
+                         :      l1DecayMode:            1.2416            1.4663   [            0.0000            10.000 ]
+                         : ---------------------------------------------------------------------------------------------------
+                         :
+                         : Evaluation results ranked by best signal efficiency and purity (area)
+                         : ------------------------------------------------------------------------------------------------------------\
+-------
+                         : DataSet       MVA
+                         : Name:         Method:          ROC-integ
+                         : dataset       BDT            : 0.939
+                         : ------------------------------------------------------------------------------------------------------------\
+-------
+                         :
+                         : Testing efficiency compared to training efficiency (overtraining check)
+                         : ------------------------------------------------------------------------------------------------------------\
+-------
+                         : DataSet              MVA              Signal efficiency: from test sample (from training sample)
+                         : Name:                Method:          @B=0.01             @B=0.10            @B=0.30
+                         : ------------------------------------------------------------------------------------------------------------\
+-------
+                         : dataset              BDT            : 0.233 (0.255)       0.814 (0.817)      0.976 (0.976)
+                         : ------------------------------------------------------------------------------------------------------------\
+-------
+                         :
+<HEADER> Dataset:dataset          : Created tree 'TestTree' with 56169 events
+                         :
+<HEADER> Dataset:dataset          : Created tree 'TrainTree' with 56169 events
+</p>
+</details>
+
+-  Opened resulting ROOT file and looked at its contents:
+<details><summary>Structure of post-TMVA file</summary>
+<p>
+root [9] _file0->cd()
+(bool) true
+root [10] .ls
+TFile**		TMVA_training_taus_out_top5varsdyll.root	
+ TFile*								TMVA_training_taus_out_top5varsdyll.root	
+  TDirectoryFile*												dataset	dataset
+   TDirectoryFile*													Method_BDT Directory for all BDT methods
+    TDirectoryFile*														   BDT	     BDT
+     KEY: TObjString														   TrainingPath;1 Collectable string class
+     KEY: TObjString														   WeightFileName;1	      Collectable string class
+     KEY: TTree															   MonitorNtuple;1	      BDT variables
+     KEY: TH1D															   MVA_BDT_S;1		      MVA_BDT_S
+     KEY: TH1D															   MVA_BDT_B;1		      MVA_BDT_B
+     KEY: TH1D															   MVA_BDT_S_high;1	      MVA_BDT_S_high
+     KEY: TH1D															   MVA_BDT_B_high;1	      MVA_BDT_B_high
+     KEY: TH1D															   MVA_BDT_effS;1	      MVA_BDT (signal)
+     KEY: TH1D															   MVA_BDT_effB;1	      MVA_BDT (background)
+     KEY: TH1D															   MVA_BDT_effBvsS;1	      MVA_BDT
+     KEY: TH1D															   MVA_BDT_rejBvsS;1	      MVA_BDT
+     KEY: TH1D															   MVA_BDT_invBeffvsSeff;1    MVA_BDT
+     KEY: TH1D															   MVA_BDT_Train_S;1	      MVA_BDT_Train_S
+     KEY: TH1D															   MVA_BDT_Train_B;1	      MVA_BDT_Train_B
+     KEY: TH1D															   MVA_BDT_trainingEffS;1     MVA_BDT (signal)
+     KEY: TH1D															   MVA_BDT_trainingEffB;1     MVA_BDT (background)
+     KEY: TH1D															   MVA_BDT_trainingEffBvsS;1  MVA_BDT
+     KEY: TH1D															   MVA_BDT_trainingRejBvsS;1  MVA_BDT
+     KEY: TH1F															   l1Pt__Signal;1	      l1Pt
+     KEY: TH1F															   l1Pt__Background;1	      l1Pt
+     KEY: TH1F															   l1Eta__Signal;1	      l1Eta
+     KEY: TH1F															   l1Eta__Background;1	      l1Eta
+     KEY: TH1F															   tauL1StripPt__Signal;1     tauL1StripPt
+     KEY: TH1F															   tauL1StripPt__Background;1 tauL1StripPt
+     KEY: TH1F															   track1ChiSquared__Signal;1 track1ChiSquared
+     KEY: TH1F															   track1ChiSquared__Background;1 track1ChiSquared
+     KEY: TH1F															   l1DecayMode__Signal;1	  l1DecayMode
+     KEY: TH1F															   l1DecayMode__Background;1	  l1DecayMode
+     KEY: TDirectoryFile													   CorrelationPlots;1		  CorrelationPlots
+     KEY: TH1F															   dataset_BoostWeight;1	  AdaBooost weight distribution
+     KEY: TH1F															   BoostWeightVsTree;1		  Boost weights vs tree
+     KEY: TH1F															   ErrFractHist;1		  error fraction vs tree number
+     KEY: TH1I															   dataset_NodesBeforePruning;1	  nodes before pruning
+     KEY: TH1I															   dataset_NodesAfterPruning;1	  nodes after pruning
+    KEY: TDirectoryFile														   BDT;1			  BDT
+   KEY: TH2F															   CorrelationMatrixS;1		  Correlation Matrix (signal)
+   KEY: TH2F															   CorrelationMatrixB;1		  Correlation Matrix (background)
+   KEY: TDirectoryFile														   InputVariables_Id;1		  InputVariables_Id
+   KEY: TDirectoryFile														   Method_BDT;1			  Directory for all BDT methods
+   KEY: TTree															   TestTree;1			  TestTree
+   KEY: TTree															   TrainTree;1			  TrainTree
+  KEY: TDirectoryFile														   dataset;1			  dataset
+
+</p>
+</details>
+
