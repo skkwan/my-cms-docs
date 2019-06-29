@@ -1,0 +1,73 @@
+# (cont.d) Week of June 27 - July 4, 2019
+
+## (cont.d) Saturday (June 29, 2019)
+
+### Applying BDT weight file
+- Input: `dyll-pilot.root` with 44,400 entries.
+- The histogram of MVA discriminants in `appliedWeightFile_dyll-pilot.root` has 44,400 entries (using `MVA_BDT->GetEntries()')
+- `MVA_BDT->Print("all")` prints the histogram's bin contents:
+  * For the dyll-pilot.root file, all events' discriminant value fall between -0.47 and +0.21.
+  * Bins are in increments of 0.02 (e.g. -0.19, -0.17, -0.15, etc.) from -1.01 to 1.01.
+
+### Creating new TTree (v1)
+
+- Variables: l1Pt, l1Eta, track1ChiSquared, tauL1StripPt, and l1DecayMode
+- Drafting variable ranges based on eyeballing distributions of dyll.root (commit d7c97ec).
+
+#### l1Pt (draft)
+
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Pt.png)
+
+| Variable | Range         | Discriminant value | Value used to calculate the discriminant |
+|----------|---------------|--------------------|------------------------------------------|
+| l1Pt     | 0 - 20 GeV    | ?                  | 10 GeV                                   |
+| l1Pt     | 20 - 50 GeV   | ?                  | 35 GeV                                   |
+| l1Pt     | 50 - 100 GeV  | ?                  | 75 GeV                                   |
+| l1Pt     | 100 - 500 GeV | ?                  | 300 GeV                                  |
+
+#### l1Eta (draft)
+
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Eta.png)
+
+| Variable | Range        | Discriminant value | Value used to calculate the discriminant |
+|----------|--------------|--------------------|------------------------------------------|
+| l1Eta    | -3.0 to -1.5 | ?                  | -2.25                                    |
+| l1Eta    | -1.5 to 0.0  | ?                  | -0.75                                    |
+| l1Eta    | 0.0 to +1.5  | ?                  | +0.75                                    |
+| l1Eta    | +1.5 to +3.0 | ?                  | +2.25                                    |
+
+
+#### track1ChiSquared (draft):
+
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_track1ChiSquared.png)
+
+| Variable         | Range      | Discriminant value | Value used to calculate the discriminant |
+|------------------|------------|--------------------|------------------------------------------|
+| track1ChiSquared | 0 to 25    | ?                  | 12.5                                     |
+| track1ChiSquared | 25 to 60   | ?                  | 42.5                                     |
+| track1ChiSquared | 60 to 100  | ?                  | 80                                       |
+| track1ChiSquared | 100 to 160 | ?                  | 130                                      |
+
+#### tauL1StripPt (draft)
+
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Pt.png)
+
+| Variable     | Range     | Discriminant value | Value used to calculate the discriminant |
+|--------------|-----------|--------------------|------------------------------------------|
+| tauL1StripPt | 0 to 12   | ?                  | 12.5                                     |
+| tauL1StripPt | 12 to 50  | ?                  | 42.5                                     |
+| tauL1StripPt | 50 to 80  | ?                  | 80                                       |
+| tauL1StripPt | 80 to 100 | ?                  | 130                                      |
+
+#### l1DecayMode (draft)
+
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1DM.png)
+
+The ranges are just chosen so that the midpoints are 0, 1, and 10.
+
+| Variable    | Range       | Discriminant value | Value used to calculate the discriminant |
+|-------------|-------------|--------------------|------------------------------------------|
+| l1DecayMode | -0.5 to 0.5 | ?                  | 0                                        |
+| l1DecayMode | 0.5 to 1.5  | ?                  | 1                                        |
+| l1DecayMode | 9.5 to 10.5 | ?                  | 10                                       |
+

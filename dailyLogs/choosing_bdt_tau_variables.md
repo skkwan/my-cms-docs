@@ -70,7 +70,7 @@ The plots of these variables are in commit 6ac93f2 - should add these to weekly 
 </p>
 </details>
 
-## Variable binning
+### Brainstorming variable binning
 - As a side note, typically an offline cut with require that pT > 100 GeV should be accepted and anything below pT < 20 GeV should be rejected (because jet fake rates are super high at low pT), but we should not exclude l1Pt < 20 GeV from training/ algorithm development.
 
 - For example:
@@ -95,7 +95,7 @@ Looking at [this plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel
 
 
 - Once I determine variable binning, I need to make an n-tuple with custom entries and values. 
-   * Look for a TMVA method that applies the trained BDT's weights
+   * ~~Look for a TMVA method that applies the trained BDT's weights~~ (It already does that)
    * Make TTree with (n1 * n2 * n3 etc.) entries.
 
 - Ideally the options supported are:
