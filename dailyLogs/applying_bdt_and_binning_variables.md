@@ -72,3 +72,62 @@ The ranges are just chosen so that the midpoints are 0, 1, and 10.
 | l1DecayMode | 9.5 to 10.5 | ?                  | 10                                       |
 
 
+## Monday (July 1, 2019)
+
+### To-do
+* Set up tau analyzer in my working directory
+* Put in `deltaZ` between first track and zVTX
+* Figure out how to do permutations of variable values
+
+### Thinking
+If I have two variables with 3 and 2 possible bins, I know there are 3 x 2 = 6 total bins
+- First variable:
+  * Most coarse-grained
+  * I know I need to vary the second variable by two values, so I fill the rows two at a time, with each three possible value of the first variable
+  * 
+- Then I fill the second variable, fine-grained
+
+If I have three variables with 3, 3, 2 possible bins, there are 3 x 3 x 2 = 18 total rows
+- First variable:
+  * For i = 1, 2, 3, I fill (3 x 2) = 6 rows at a time with value[i]
+    until I reach end of the array
+- Second variable:
+  * For i = 1, 2, 3, I fill (2) rows at a time with value[i]
+    until I reach end of the array
+- Third variable:
+  * For i = 1, 2, I fill (1) row at a time with value[i]
+    until I reach end of the array
+
+Pseudocode:
+- For each variable iVar,
+  - While the end of the table is not reached,
+    - For each variable's possible value iVal
+      - Fill x rows at a time with that value, where x is
+        the product of the remaining variables' number of
+        bins
+    
+Pseudocode 2:
+- For each variable iVar,
+  - initialize r = 0
+  - calculate x = product of remaining variables' 
+                  number of bins
+  - while (r < rMAX)
+    - for (iVal = 0, 1, ..., nVals)
+      	 - fill rows (r, r + x) with value iVal
+         - r += x
+
+### Pseudocode for the file:
+- User inputs: For each variable, declare bins
+- Desired output: Two-dimensional array of doubles
+  
+Steps:
+1. Initialize array of pointers to array of doubles
+1. Hard-code bins at top of file
+1. Initialize array with one extra column for discriminant value
+1. Implement Pseudocode 2
+1. Return array
+1. Call another function to print/visualize the array.
+
+
+
+	
