@@ -54,10 +54,10 @@
 
 | Variable     | Range     | Discriminant value | Value used to calculate the discriminant |
 |--------------|-----------|--------------------|------------------------------------------|
-| tauL1StripPt | 0 to 12   | ?                  | 12.5                                     |
-| tauL1StripPt | 12 to 50  | ?                  | 42.5                                     |
-| tauL1StripPt | 50 to 80  | ?                  | 80                                       |
-| tauL1StripPt | 80 to 100 | ?                  | 130                                      |
+| tauL1StripPt | 0 to 12   | ?                  | 6.0                                      |
+| tauL1StripPt | 12 to 50  | ?                  | 31.0                                     |
+| tauL1StripPt | 50 to 80  | ?                  | 65.0                                     |
+| tauL1StripPt | 80 to 100 | ?                  | 90.0                                     |
 
 #### l1DecayMode (draft)
 
