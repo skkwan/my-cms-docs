@@ -13,6 +13,7 @@
 
 - Variables: l1Pt, l1Eta, track1ChiSquared, tauL1StripPt, and l1DecayMode
 - Drafting variable ranges based on eyeballing distributions of dyll.root (commit d7c97ec).
+- Changing binning based on discussion with Isobel on July 4 2019 (see Google Drive notes).
 
 #### l1Pt (draft)
 
@@ -25,41 +26,40 @@
 | l1Pt     | 50 - 100 GeV  | ?                  | 75 GeV                                   |
 | l1Pt     | 100 - 500 GeV | ?                  | 300 GeV                                  |
 
-#### l1Eta (draft)
+#### l1Eta
 
 [Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Eta.png)
 
-| Variable | Range        | Discriminant value | Value used to calculate the discriminant |
-|----------|--------------|--------------------|------------------------------------------|
-| l1Eta    | -3.0 to -1.5 | ?                  | -2.25                                    |
-| l1Eta    | -1.5 to 0.0  | ?                  | -0.75                                    |
-| l1Eta    | 0.0 to +1.5  | ?                  | +0.75                                    |
-| l1Eta    | +1.5 to +3.0 | ?                  | +2.25                                    |
+| Variable | Range             | Discriminant value | Value used to calculate the discriminant |
+|----------|-------------------|--------------------|------------------------------------------|
+| l1Eta    | -2.5 to -1.479    | ?                  | -1.99                                    |
+| l1Eta    | -1.479 to 1.479   | ?                  | 0                                        |
+| l1Eta    | +2.5 to +1.479    | ?                  | +1.99                                    |
 
 
-#### track1ChiSquared (draft):
+#### track1ChiSquared
 
 [Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_track1ChiSquared.png)
 
 | Variable         | Range      | Discriminant value | Value used to calculate the discriminant |
 |------------------|------------|--------------------|------------------------------------------|
-| track1ChiSquared | 0 to 25    | ?                  | 12.5                                     |
-| track1ChiSquared | 25 to 60   | ?                  | 42.5                                     |
-| track1ChiSquared | 60 to 100  | ?                  | 80                                       |
-| track1ChiSquared | 100 to 160 | ?                  | 130                                      |
+| track1ChiSquared | 0 to 10    | ?                  | 5.0                                      |
+| track1ChiSquared | 10 to 20   | ?                  | 15.0                                     |
+| track1ChiSquared | 20 to 40   | ?                  | 30.0                                     |
+| track1ChiSquared | 40 to 160  | ?                  | 100.0                                    |
 
-#### tauL1StripPt (draft)
+#### tauL1StripPt
 
-[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Pt.png)
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_tauL1StripPt.png)
 
 | Variable     | Range     | Discriminant value | Value used to calculate the discriminant |
 |--------------|-----------|--------------------|------------------------------------------|
-| tauL1StripPt | 0 to 12   | ?                  | 6.0                                      |
-| tauL1StripPt | 12 to 50  | ?                  | 31.0                                     |
-| tauL1StripPt | 50 to 80  | ?                  | 65.0                                     |
-| tauL1StripPt | 80 to 100 | ?                  | 90.0                                     |
+| tauL1StripPt | 0         | ?                  | 0.0                                      |
+| tauL1StripPt | 1 to 20   | ?                  | 10.5                                     |
+| tauL1StripPt | 20 to 60  | ?                  | 40.0                                     |
+| tauL1StripPt | 60 to 100 | ?                  | 80.0                                     |
 
-#### l1DecayMode (draft)
+#### l1DecayMode
 
 [Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1DM.png)
 
