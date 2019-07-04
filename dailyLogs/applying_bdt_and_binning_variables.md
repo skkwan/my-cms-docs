@@ -36,6 +36,16 @@
 | l1Eta    | -1.479 to 1.479   | ?                  | 0                                        |
 | l1Eta    | +2.5 to +1.479    | ?                  | +1.99                                    |
 
+#### tauL1StripPt
+
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_tauL1StripPt.png)
+
+| Variable     | Range     | Discriminant value | Value used to calculate the discriminant |
+|--------------|-----------|--------------------|------------------------------------------|
+| tauL1StripPt | 0         | ?                  | 0.0                                      |
+| tauL1StripPt | 1 to 20   | ?                  | 10.5                                     |
+| tauL1StripPt | 20 to 60  | ?                  | 40.0                                     |
+| tauL1StripPt | 60 to 100 | ?                  | 80.0                                     |
 
 #### track1ChiSquared
 
@@ -47,17 +57,6 @@
 | track1ChiSquared | 10 to 20   | ?                  | 15.0                                     |
 | track1ChiSquared | 20 to 40   | ?                  | 30.0                                     |
 | track1ChiSquared | 40 to 160  | ?                  | 100.0                                    |
-
-#### tauL1StripPt
-
-[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_tauL1StripPt.png)
-
-| Variable     | Range     | Discriminant value | Value used to calculate the discriminant |
-|--------------|-----------|--------------------|------------------------------------------|
-| tauL1StripPt | 0         | ?                  | 0.0                                      |
-| tauL1StripPt | 1 to 20   | ?                  | 10.5                                     |
-| tauL1StripPt | 20 to 60  | ?                  | 40.0                                     |
-| tauL1StripPt | 60 to 100 | ?                  | 80.0                                     |
 
 #### l1DecayMode
 
