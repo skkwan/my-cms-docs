@@ -20,3 +20,25 @@ Ideas:
 - Successfully prints table with variable permutations and the discr. value (commit `437223b`).
 - Added some comments (commit `1b2b1d7`).
 
+## Wednesday (July 3, 2019)
+
+### Closer look at table
+- L1DecayMode seems to have no effect on the BDT value with the current variables/binning.
+
+### Thoughts on reading "BDTs in the CMS L1 Endcap Muon Detector"
+- They use different variables for the BDT depending on which stations in the CSC/RPC chambers were hit.
+
+
+### Other things
+- Watched first lecture of [MIT Intro to Deep Learning](https://www.youtube.com/watch?v=5v1JnYv_yWs)
+   - Evaluating the output of a perceptron: take a dot product, add a bias, take a non-linearity
+   - Need a non-linear function known as an activation function, to introduce non-linearity into the system
+- Revisited TMVA documentation ("boosted" makes more sense now - default value for number of trees in the forest is 800)
+- Made note to revisit tau trigger paper to get some physics questions answered 
+   - I don't quite understand the distributions of the variables 
+   - and I don't understand what track1ChiSquared is
+   - I also don't understand what the main sources of bkg are (aside from "jets faking taus")
+- Started doing safety trainings for L1T Shift
+
+## Thursday (July 4, 2019)
+
