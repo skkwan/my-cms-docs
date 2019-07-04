@@ -74,16 +74,15 @@ The ranges are just chosen so that the midpoints are 0, 1, and 10.
 ## Monday (July 1, 2019)
 
 ### To-do
-* Set up tau analyzer in my working directory
+* ~~Set up tau analyzer in my working directory~~ (Done July 4 2019) 
 * Put in `deltaZ` between first track and zVTX
-* Figure out how to do permutations of variable values
+* ~~Figure out how to do permutations of variable values~~ (Done July 2 2019))
 
 ### Thinking
 If I have two variables with 3 and 2 possible bins, I know there are 3 x 2 = 6 total bins
 - First variable:
   * Most coarse-grained
   * I know I need to vary the second variable by two values, so I fill the rows two at a time, with each three possible value of the first variable
-  * 
 - Then I fill the second variable, fine-grained
 
 If I have three variables with 3, 3, 2 possible bins, there are 3 x 3 x 2 = 18 total rows
