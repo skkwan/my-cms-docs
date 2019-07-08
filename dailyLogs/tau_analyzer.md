@@ -37,12 +37,15 @@ Working directory: `/afs/cern.ch/work/s/skkwan/public/triggerDevel/jul2019/CMSSW
 
    Additional Info:
       [a] If you wish to continue processing events after a ProductNotFound exception,
-            add "SkipEvent = cms.untracked.vstring('ProductNotFound')" to the "options" PSet in the configuration.
-
------ End Fatal Exception -------------------------------------------------
+            add "SkipEvent = cms.untracked.vstring('ProductNotFound')" to the "options" PSet in the configuration. 
+   ----- End Fatal Exception -------------------------------------------------
       </p></details>
 
+## Monday July 8, 2019
 
+### Still stuck on config file error
+- Uncommented `dump.py` at the end of `test-Analyzer.py`: looked through it and saw that there are two EDProducers that make `L1PFObjects`, but I don't know how to use this to debug it.
+- Isobel sent me a revised analyzer [test-Analyzer-reprocess.py](https://github.com/isobelojalvo/phase2L1TauAnalyzer/blob/master/test/test-Analyzer-reprocess.py).
 
-
-
+### Safety trainings
+Completed, requested access on ADAMS.
