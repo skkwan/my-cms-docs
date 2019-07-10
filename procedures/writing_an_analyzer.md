@@ -63,3 +63,16 @@
   </p></details>
 * In above example: we see `“lumi_section_num’: [3184]”`
 * So in the analyzer: put `process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange("1:3184")`
+
+
+### PluginNotFound
+
+* `edmDumpEventContent root://cmsxrootd.fnal.gov//store/mc/...` will show what is present in the file
+* In the analyzer endjob step, you can put all the products into a root file
+
+### Mysteriously no events being stored in output root file
+
+* Check if lumisections are correct
+
+### Templates
+* The Trigger group maintains various templates for analyzers, e.g. [reprocess_test_10_4_0_mtd5.py](https://github.com/cms-l1t-offline/cmssw/blob/phase2-l1t-integration-CMSSW_10_6_0_pre4/L1Trigger/L1TCommon/test/reprocess_test_10_4_0_mtd5.py)
