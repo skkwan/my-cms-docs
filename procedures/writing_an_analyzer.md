@@ -45,11 +45,13 @@
   * `source /cvmfs/cms.cern.ch/crab3/crab.sh`
   * `python`
   * In Python: 
-    ```>>> from dbs.apis.dbsClient import DbsApi
-       >>> dir(DbsApi)
-       >>> dbs = DbsApi('https://cmsweb.cern.ch/dbs/prod/global/DBSReader')
-       >>> dbs.listFileChildren(logical_file_name='/store/mc/PhaseIIMTDTDRAutumn18DR/DYToLL_M-50_14TeV_TuneCP5_pythia8/FEVT/PU200_103X_upgrade2023_realistic_v2-v2/910000/F37B1F94-AD89-DF40-8D40-3EE87E8339A1.root')
-[{'child_logical_file_name': ['/store/mc/PhaseIIMTDTDRAutumn18MiniAOD/DYToLL_M-50_14TeV_TuneCP5_pythia8/MINIAODSIM/PU200_103X_upgrade2023_realistic_v2-v2/90000/76B29BD2-951D-344C-B9D1-A1FF88850962.root'], 'logical_file_name': '/store/mc/PhaseIIMTDTDRAutumn18DR/DYToLL_M-50_14TeV_TuneCP5_pythia8/FEVT/PU200_103X_upgrade2023_realistic_v2-v2/910000/F37B1F94-AD89-DF40-8D40-3EE87E8339A1.root'}]   ```      			   
+    ```
+    % from dbs.apis.dbsClient import DbsApi
+    % dir(DbsApi)
+    % dbs = DbsApi('https://cmsweb.cern.ch/dbs/prod/global/DBSReader')
+    % dbs.listFileChildren(logical_file_name='/store/mc/PhaseIIMTDTDRAutumn18DR/DYToLL_M-50_14TeV_TuneCP5_pythia8/FEVT/PU200_103X_upgrade2023_realistic_v2-v2/910000/F37B1F94-AD89-DF40-8D40-3EE87E8339A1.root')
+[{'child_logical_file_name': ['/store/mc/PhaseIIMTDTDRAutumn18MiniAOD/DYToLL_M-50_14TeV_TuneCP5_pythia8/MINIAODSIM/PU200_103X_upgrade2023_realistic_v2-v2/90000/76B29BD2-951D-344C-B9D1-A1FF88850962.root'], 'logical_file_name': '/store/mc/PhaseIIMTDTDRAutumn18DR/DYToLL_M-50_14TeV_TuneCP5_pythia8/FEVT/PU200_103X_upgrade2023_realistic_v2-v2/910000/F37B1F94-AD89-DF40-8D40-3EE87E8339A1.root'}]
+    ```
 
 ### How to get LumiSections (cont.d, also in Python environment)
 * listFileLumis and using one of the FEVT parent files:
