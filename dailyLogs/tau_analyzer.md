@@ -57,10 +57,13 @@ Completed, requested access on ADAMS.
 - Taus inherit from [DataFormats/Candidate/interface/Particle.h](https://github.com/cms-sw/cmssw/blob/02d4198c0b6615287fd88e9a8ff650aea994412e/DataFormats/Candidate/interface/Particle.h) 
   * `typedef math::XYZPoint Point;` (See Point attributes [here](https://root.cern.ch/root/html/ROOT__Math__PositionVector3D_-p1Cartesian3D_double__-p1DefaultCoordinateSystemTag_.html))
   
-- ~~Added branches: `l1TauZ`, `zVTX`, `deltaZTauVTX`~~
+- ~~Added branches: `zVTX`, `l1TauPVDZ`~~
 
 ### Next steps after discussing with Isobel
 1. ~~Either re-integrate the "reprocess" analyzer into test-Analyzer.py (change geometry and something else),~~ or just use the "reprocess" analyzer
 1. Stategy for debugging test-Analyzer.py "PluginNotFound": just run the simulation step/ take out the problematic step in process.schedule(), then run it, and edmEventContentDump the resultant `analyzer.root`.
 1. ~~See if the "reprocess" analyzer works with tau files instead of the neutrino files the template analyzer came with~~ Yes
 1. Put in the L1Vertex Collection [as shown here](https://github.com/isobelojalvo/L1MTD/blob/LLPDev_Jan21/plugins/L1MTDPFAnalyzer.cc) to get L1 vertices (as opposed to Reco-level vertices which I mistakenly did, using the b-tagging analyzer)
+
+## Wednesday (July 10, 2019)
+
