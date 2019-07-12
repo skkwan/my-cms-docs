@@ -67,3 +67,17 @@ Completed, requested access on ADAMS.
 
 ## Wednesday (July 10, 2019)
 
+### More debugging
+- When I use scram to re-build from src/ or the phase2l1tau repository, I get 
+
+   ```/afs/cern.ch/work/s/skkwan/public/triggerDevel/jul2019/CMSSW_10_6_0_pre4/src/L1Trigger/phase2L1TauAnalyzer/plugins/phase2L1TauAnalyzer.cc:129:21: error: 'L1TkPrimaryVertexCollection' was not declared in this scope
+   edm::EDGetTokenT< L1TkPrimaryVertexCollection >    pvToken_; ```
+- In `CMSSW_10_6_0_pre4/src/DataFormats/`, run `grep L1TkPrimaryVertexCollection * -rl` and include one of the .h header files
+- Removed reference to l1PFTaus->at(i).pfRef() because pfRef is no longer defined in l1pftaus
+- [https://github.com/cms-l1t-offline/cmssw/blob/phase2-l1t-integration-CMSSW_10_6_0_pre4/DataFormats/L1Trigger/interface/L1PFTau.h](https://github.com/cms-l1t-offline/cmssw/blob/phase2-l1t-integration-CMSSW_10_6_0_pre4/DataFormats/L1Trigger/interface/L1PFTau.h) : L1PFTau header file
+  - Line 19 has a friend "LeafCandidate"
+- [https://github.com/cms-l1t-offline/cmssw/blob/phase2-l1t-integration-CMSSW_10_6_0_pre4/DataFormats/Candidate/interface/LeafCandidate.h](https://github.com/cms-l1t-offline/cmssw/blob/phase2-l1t-integration-CMSSW_10_6_0_pre4/DataFormats/Candidate/interface/LeafCandidate.h): LeafCandidate header file
+
+
+## Thursday (July 11, 2019)
+Preparing slides for group meeting
