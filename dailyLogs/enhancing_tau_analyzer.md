@@ -1,4 +1,4 @@
-# Week of Monday Jul 22, 2019 - 
+# Week of Monday Jul 22, 2019 - Thursday Jul 25, 2019
 
 CoDaS HEP school at Princeton!
 
@@ -66,3 +66,5 @@ Group meeting slides should cover:
 - Included k-fold training
 - Discuss overtraining checks
 - Explain ROC curve and show ROC curve
+
+* See slides for commentary on l1TauZ distribution
