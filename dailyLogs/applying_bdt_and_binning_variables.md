@@ -17,7 +17,7 @@
 
 #### l1Pt (draft)
 
-[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Pt.png)
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Pt.pdf)
 
 | Variable | Range         | Discriminant value | Value used to calculate the discriminant |
 |----------|---------------|--------------------|------------------------------------------|
@@ -28,7 +28,7 @@
 
 #### l1Eta
 
-[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Eta.png)
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1Eta.pdf)
 
 | Variable | Range             | Discriminant value | Value used to calculate the discriminant |
 |----------|-------------------|--------------------|------------------------------------------|
@@ -38,7 +38,7 @@
 
 #### tauL1StripPt
 
-[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_tauL1StripPt.png)
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_tauL1StripPt.pdf)
 
 | Variable     | Range     | Discriminant value | Value used to calculate the discriminant |
 |--------------|-----------|--------------------|------------------------------------------|
@@ -49,7 +49,7 @@
 
 #### track1ChiSquared
 
-[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_track1ChiSquared.png)
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_track1ChiSquared.pdf)
 
 | Variable         | Range      | Discriminant value | Value used to calculate the discriminant |
 |------------------|------------|--------------------|------------------------------------------|
@@ -60,7 +60,7 @@
 
 #### l1DecayMode
 
-[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1DM.png)
+[Plot](https://github.com/skkwan/phase2L1BTagAnalyzer/blob/devel/tau_exercise/plot_tau_features/validationPlots/dyll_root/dyll_l1DM.pdf)
 
 The ranges are just chosen so that the midpoints are 0, 1, and 10.
 
