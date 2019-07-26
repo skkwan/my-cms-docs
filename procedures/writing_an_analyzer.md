@@ -41,6 +41,10 @@
   </p></details>
 
 ### How to get child from parent
+**The better method:**
+Just use the Data Aggregation Service website.
+
+**The suboptimal method:**
 * Get miniAOD (child) from FEVT logical file name: (after cmsenv and voms certificate).
   * `source /cvmfs/cms.cern.ch/crab3/crab.sh`
   * `python`
