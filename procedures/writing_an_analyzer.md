@@ -42,7 +42,19 @@
 
 ### How to get child from parent
 **The better method:**
-Just use the Data Aggregation Service website.
+Use the Data Aggregation Service website: [https://cmsweb.cern.ch/das/keys](List of all keys)
+* From MINIAODSIM to FEVT:
+  ```parent file=/store/mc/PhaseIIMTDTDRAutumn18MiniAOD/GluGluHToTauTau_M125_14TeV_powheg_pythia8/MINIAODSIM/PU200_103X_upgrade2023_realistic_v2-v1/80000/D3DC70EE-99CF-3F48-A95D-9BAF25A82132.root```
+* To find list of MINIAODSIM:
+  ```file  dataset=/GluGluHToTauTau_M125_14TeV_powheg_pythia8/PhaseIIMTDTDRAutumn18MiniAOD-PU200_103X_upgrade2023_realistic_v2-v1/MINIAODSIM```
+* From FEVT to MINIAODSIM:
+  ```child file=/store/mc/PhaseIIMTDTDRAutumn18DR/GluGluHToTauTau_M125_14TeV_powheg_pythia8/FEVT/PU200_103X_upgrade2023_realistic_v2-v1/80000/FF1F2905-A82D-3E45-B34E-E040C237018E.root```
+* To get from one MINIAODSIM to another MINIAODSIM in the same dataset:
+  * First get the dataset name:
+    ```dataset file=/store/mc/PhaseIIMTDTDRAutumn18MiniAOD/GluGluHToTauTau_M125_14TeV_powheg_pythia8/MINIAODSIM/PU200_103X_upgrade2023_realistic_v2-v1/80000/85B0E400-E6BC-4642-98BD-F565569C3910.root```
+    Say this outputs ```/GluGluHToTauTau_M125_14TeV_powheg_pythia8/PhaseIIMTDTDRAutumn18MiniAOD-PU200_103X_upgrade2023_realistic_v2-v1/MINIAODSIM```.
+    Then look up the other files in it:
+    ```file dataset=
 
 **The suboptimal method:**
 * Get miniAOD (child) from FEVT logical file name: (after cmsenv and voms certificate).
