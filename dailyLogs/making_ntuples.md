@@ -20,7 +20,7 @@ Back at CERN
 
 - GluGluHTauTau jobs completed but the merged resulting file only has maybe a dozen nonzero l1Pt entries out of 18,059 entries
 - My mistake... the two-file submission also had zero l1Pt entries out of 1292
-- Analyzer was outdated and simply not filling efficiencyTree: updated analyzer and submitted two jobs to test
+- Analyzer was outdated and simply not filling efficiencyTree: updated analyzer and submitted two jobs to test on sshuw06
 
 - Trained BDT on dyll files.. still overtraining, only 660 signal and 2976 background events
   - ```
@@ -38,4 +38,19 @@ Back at CERN
                          : dataset              BDT            : 0.110 (0.302)       0.381 (0.528)      0.669 (0.736)
                          : -------------------------------------------------------------------------------------------------------------------```
 
-- See to-do list in notebook
+- Start doing TMVA integration on lxplus cluster, master branch of tau analyzer
+
+
+## Tuesday (Jul 30, 2019)
+- segfault when I run runComparisonPlotsReprocess.C - the "l1Pt>0" cut is causing it, but what really is happening is that the l1 tree isn't being filled at all
+- Doing cmsRun interactively on Higgs to Tau Tau samples to try and debug - works on lxplus, logrun is turning up L1 tau parameters!
+- Submitted two jobs of Higgs to Tau Tau
+
+- HDF5Utils seems to not work well on lxplus/cms turf...
+
+- Created devel branch of Tau analyzer in lxplus for TMVA implementation (plugins/MVAL1TauId.cc)
+- Is there a tau analogy for [https://github.com/cms-sw/cmssw/blob/9834f5dc9ff342ddef08b73d6c294cad36575772/RecoJets/JetProducers/interface/MVAJetPuId.h](cmssw/RecoJets/JetProducers/interface/MVAJetPuId.h)? 
+
+
+## Wednesday (Jul 31, 2019)
+
