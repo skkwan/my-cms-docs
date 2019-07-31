@@ -75,5 +75,6 @@ Consulted Isobel:
 - Drafted an analyzer that calls an already-trained BDT's weight file to calculate a discriminant for each L1 tau, and stores the discriminant in a branch in efficiencyTree.
   - Idea is to add a branch to efficiencyTree that is the BDT discriminant
   - Is there a way to avoid loading the TMVA reader in every call to the analyze() function?
-  - Testing on lxplus730 screen session
+  - ~~Testing on lxplus730 screen session~~
+  - BDT discriminant is always one value: **fix analyzer so that it calls EvaluateMVA() with unique input values each time**
 - Updated checkout instructions - scram command needs an extra `-lTMVA` compilation flag
