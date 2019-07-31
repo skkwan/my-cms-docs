@@ -50,7 +50,7 @@ Back at CERN
 - HDF5Utils seems to not work well on lxplus/cms turf...
 
 - Created devel branch of Tau analyzer in lxplus for TMVA implementation (plugins/MVAL1TauId.cc)
-- ~~Is there a tau analogy for [https://github.com/cms-sw/cmssw/blob/9834f5dc9ff342ddef08b73d6c294cad36575772/RecoJets/JetProducers/interface/MVAJetPuId.h](cmssw/RecoJets/JetProducers/interface/MVAJetPuId.h)? ~~
+- ~~Is there a tau analogy for [https://github.com/cms-sw/cmssw/blob/9834f5dc9ff342ddef08b73d6c294cad36575772/RecoJets/JetProducers/interface/MVAJetPuId.h](cmssw/RecoJets/JetProducers/interface/MVAJetPuId.h)?~~ (don't need to do this)
 
 Consulted Isobel:
 1. "So the point is that you need to look at how the MVA is evaluated and add it to your analyzer. So, the first thing I would do is take the appropriate TMVA header files (not PileUpJetIdentifier)."
@@ -68,10 +68,11 @@ Consulted Isobel:
 
 - Savannah says HDF5Utils requires ROOT, HDF5, and Boost. 
 - She says she installed hers locally, since it's a pain to set up on ATLAS software areas at least, because hdf5 isn't compatible with the standard ROOT build.
-  - `brew install boost` in Documents 
-  - `conda install h5py` in Documents/ROOT
+  - Ran `brew install boost` in Documents 
+  - Ran `conda install h5py` in Documents/ROOT
+  - Still building a new ROOT installation.
 
-- Drafted an implementation of TMVA BDT application in the Tau analyzer devel branch (on lxplus, not committed yet) that compiles
+- Drafted an analyzer that calls an already-trained BDT's weight file to calculate a discriminant for each L1 tau, and stores the discriminant in a branch in efficiencyTree.
   - Idea is to add a branch to efficiencyTree that is the BDT discriminant
   - Is there a way to avoid loading the TMVA reader in every call to the analyze() function?
   - Testing on lxplus730 screen session
