@@ -1,3 +1,4 @@
+
 # Week of Friday (Jul 26, 2019) - Thursday (Aug 1, 2019)
 
 ## Friday (Jul 26, 2019)
@@ -44,13 +45,34 @@ Back at CERN
 ## Tuesday (Jul 30, 2019)
 - segfault when I run runComparisonPlotsReprocess.C - the "l1Pt>0" cut is causing it, but what really is happening is that the l1 tree isn't being filled at all
 - Doing cmsRun interactively on Higgs to Tau Tau samples to try and debug - works on lxplus, logrun is turning up L1 tau parameters!
-- Submitted two jobs of Higgs to Tau Tau
+- ~~Submitted two jobs of Higgs to Tau Tau~~ still no L1 taus
 
 - HDF5Utils seems to not work well on lxplus/cms turf...
 
 - Created devel branch of Tau analyzer in lxplus for TMVA implementation (plugins/MVAL1TauId.cc)
-- Is there a tau analogy for [https://github.com/cms-sw/cmssw/blob/9834f5dc9ff342ddef08b73d6c294cad36575772/RecoJets/JetProducers/interface/MVAJetPuId.h](cmssw/RecoJets/JetProducers/interface/MVAJetPuId.h)? 
+- ~~Is there a tau analogy for [https://github.com/cms-sw/cmssw/blob/9834f5dc9ff342ddef08b73d6c294cad36575772/RecoJets/JetProducers/interface/MVAJetPuId.h](cmssw/RecoJets/JetProducers/interface/MVAJetPuId.h)? ~~
 
+Consulted Isobel:
+1. "So the point is that you need to look at how the MVA is evaluated and add it to your analyzer. So, the first thing I would do is take the appropriate TMVA header files (not PileUpJetIdentifier)."
+2. Check to see if it compiles.
+3. "You likely need to add in the package to the BuildFile.xml in addition to the header files."
+4. "Then you can follow a similar procedure to book the MVA, load the xml and evaluate based on new variables."
+
+- Install correct CMSSW release!
+- Updated tau install instructions in readme, sent changes to Jiajing and Isobel
 
 ## Wednesday (Jul 31, 2019)
 
+- On login04 machine: Submitted 65 jobs of GluGluHiggsToTauTau PU 200 since 2 jobs have plots that look ok. Still waiting on this to run by end of the day
+- B-tagging repo: Merged devel branch with master branch 
+
+- Savannah says HDF5Utils requires ROOT, HDF5, and Boost. 
+- She says she installed hers locally, since it's a pain to set up on ATLAS software areas at least, because hdf5 isn't compatible with the standard ROOT build.
+  - `brew install boost` in Documents 
+  - `conda install h5py` in Documents/ROOT
+
+- Drafted an implementation of TMVA BDT application in the Tau analyzer devel branch (on lxplus, not committed yet) that compiles
+  - Idea is to add a branch to efficiencyTree that is the BDT discriminant
+  - Is there a way to avoid loading the TMVA reader in every call to the analyze() function?
+  - Testing on lxplus730 screen session
+- Updated checkout instructions - scram command needs an extra `-lTMVA` compilation flag
