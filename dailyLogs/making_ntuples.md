@@ -78,3 +78,11 @@ Consulted Isobel:
   - ~~Testing on lxplus730 screen session~~
   - BDT discriminant is always one value: **fix analyzer so that it calls EvaluateMVA() with unique input values each time**
 - Updated checkout instructions - scram command needs an extra `-lTMVA` compilation flag
+
+## Thursday (Aug 1, 2019)
+
+- Tried to `make` HDF5Utils, it fails. Giving up, trying to install root2hdf5
+- Debugged analyzer so it adds the BDT discriminant as a branch in the efficiencyTree
+
+  
+
