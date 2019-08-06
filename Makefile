@@ -1,2 +1,3 @@
 clean: 
-	rm -r *~
+	rm -r procedures/*~
+	rm -r dailyLogs/*~

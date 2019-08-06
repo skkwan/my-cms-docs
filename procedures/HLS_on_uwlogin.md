@@ -30,3 +30,9 @@ Also big thanks to https://cat.pdx.edu/platforms/mac/remote-access/vnc-to-linux/
    c++ -o importArray importArray.cpp
    ./importArray
    ```
+
+# Viewing and managing licenses
+1. SSH and VNC to **uwlogin.cern.ch**. My .bashrc already has `source /opt/Xilinx/Vivado/2017.2/settings64.sh` to setup the environment.
+2. `vivado` 
+3. In the Vivado GUI, Help -> Manage License pulls up the Vivado License Manager window
+4. e.g. click View License Status
