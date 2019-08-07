@@ -47,6 +47,38 @@ Downloaded and started doing the Vivado HLS tutorials:
 
 - 40 jobs remaining on 2019_Aug5-GluGluHiggsToTauTau-200PU-try1
 
-- Continued doing tutorials, see Procedures folder
-- 
+- Continued doing Vivado HLS tutorials: [https://github.com/skkwan/phase2L1T/blob/master/procedures/navigating_HLS.md](see here)
+- Learned what a .tcl file is: you run a .tcl file to create a project and specify which hardware to use and steps to 
+  perform C simulation and synthesis
+- Learned how to open and start projects in the interactive Vivado HLS command line
+- Learned how to view results of synthesis in the GUI and the output files
+- Learned how to add synthesis directives either as pragmas or to the directive file (the latter does not 
+  carry over to new Solutions), e.g. unrolling loops, partitioning arrays
+- Learned how to look at the "Analysis" perspectives to see which steps in the code are
+  consuming which resources/ approximate clock cycles
+- Learned how to compare results of different Solutions' reports
+
+## Wednesday (Aug 7, 2019)
+- Temporarily can't access Condor scheduler: a job completed this morning in the hdfs area so that's good at least
+  - "-- Failed to fetch ads from: <144.92.180.29:9618?addrs=144.92.180.29-9618+[2607-f388-101c-1000--369]-9618&noUDP&sock=1709831_6d44_5> : login03.hep.wisc.edu. SECMAN:2007:Failed to end classad message."
+
+- Made `GluGluHiggsToTauTau-200PU-consolidated-temp.root` consisting of all the GluGluHiggsToTauTau so far and trained with 400 tres (instead of 800) 
+  * 400 trees, max depth of 3
+  * Signal training events: 3556, testing events: 3556
+  * Background training events: 1560, testing events: 1560
+  * Average ROC-Int: 0.7961, std. deviation over 5 folds is 0.0096
+  * Signal efficiencies for test/training samples:
+    * 0.136 (0.251) for @B = 0.01
+    * 0.441 (0.559) for @B = 0.10
+    * 0.773 (0.811) for @B = 0.30
+
+- Goal for today: import table into HLS!
+  * Wrote testbench file to access a .txt file (must be also attached in the Test Bench in the GUI)
+  * Wrote a touchArray.c function that only serves as a function to be synthesized (adds 0.0 to all elements)
+  * Synthesis results in non-zero resource usage
+  * solution2 specifies a RAM_1P_LUTRAM [storage] for myArray in touchArray.c
+    * Added it as a **pragma** not to the directive file; something is going wonky with 
+      accessing the directives? and touchArray.c is read-only
+    * .bashrc is read-only too
+    * Had to re-start VNC server
 
