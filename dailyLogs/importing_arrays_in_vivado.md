@@ -6,7 +6,7 @@
 - Wrote a very basic C++ script to open a text file and read in an array; but
   - `/afs/cern.ch/user/s/skkwan/Documents/array_exercise``
   - When I try to synthesize, I get:
-  - "ERROR: [HLS 200-72] License checkout unsuccessful. Make sure that a license is accessible or specify an appropriate one through an environment variable."
+  - ~~"ERROR: [HLS 200-72] License checkout unsuccessful. Make sure that a license is accessible or specify an appropriate one through an environment variable."~~
 - `c++ -o importArray importArray.cpp`
 - Tried to put in the .text file from the makeTable.C script, but I get a segfault that needs to be debugged
 
@@ -38,7 +38,7 @@ Vivado HLS:
 
 - Fixed the license not found issue by going into the License Manager and picking a chip for which there was a license
   - xczu7ev-ffvf1517-3-e-es2
-- Synthesizability Errors: unsupported c/c++ library functions fopen, feof, fscanf, fclose
+- ~~Synthesizability Errors: unsupported c/c++ library functions fopen, feof, fscanf, fclose~~
 
 Downloaded and started doing the Vivado HLS tutorials:
 - Example 1 shows how to use a test bench to read from a .dat file
@@ -59,7 +59,7 @@ Downloaded and started doing the Vivado HLS tutorials:
 - Learned how to compare results of different Solutions' reports
 
 ## Wednesday (Aug 7, 2019)
-- Temporarily can't access Condor scheduler: a job completed this morning in the hdfs area so that's good at least
+- ~~Temporarily can't access Condor scheduler:~~ a job completed this morning in the hdfs area so that's good at least
   - "-- Failed to fetch ads from: <144.92.180.29:9618?addrs=144.92.180.29-9618+[2607-f388-101c-1000--369]-9618&noUDP&sock=1709831_6d44_5> : login03.hep.wisc.edu. SECMAN:2007:Failed to end classad message."
 
 - Made `GluGluHiggsToTauTau-200PU-consolidated-temp.root` consisting of all the GluGluHiggsToTauTau so far and trained with 400 tres (instead of 800) 
@@ -71,14 +71,42 @@ Downloaded and started doing the Vivado HLS tutorials:
     * 0.136 (0.251) for @B = 0.01
     * 0.441 (0.559) for @B = 0.10
     * 0.773 (0.811) for @B = 0.30
+  * Input contained 19 FEVT files
 
-- Goal for today: import table into HLS!
+- Goal for today: import toy example table into HLS!
   * Wrote testbench file to access a .txt file (must be also attached in the Test Bench in the GUI)
+  * Header file specifies dimensions of .txt array (3x3 for toy example)
   * Wrote a touchArray.c function that only serves as a function to be synthesized (adds 0.0 to all elements)
-  * Synthesis results in non-zero resource usage
+  * Synthesis results in non-zero resource usage so that's a good sign
   * solution2 specifies a RAM_1P_LUTRAM [storage] for myArray in touchArray.c
     * Added it as a **pragma** not to the directive file; something is going wonky with 
       accessing the directives? and touchArray.c is read-only
     * .bashrc is read-only too
     * Had to re-start VNC server
+  * Utilization estimates: same for with and without the RAM_1P_LUTRAM directive
 
+    |          | solution1 and solution 2 |
+    |----------|--------------------------|
+    | BRAM_18K | 0                        |
+    | DSP48E   | 2                        |
+    | FF       | 251                      |
+    | LUT      | 244                      |
+    | URAM     | 0                        |
+
+  * solution3 unrolls both `for` loops in touchArray.c in directives:
+    
+    |          | solution1 and solution 2 | solution3 |
+    |----------|--------------------------|-----------|
+    | BRAM_18K | 0                        | 0         |
+    | DSP48E   | 2                        | 2         |
+    | FF       | 251                      | 501       |
+    | LUT      | 244                      | 317       |
+    | URAM     | 0                        | 0         |
+    
+    |              | solution1 and solution 2 | solution3 |
+    |--------------|--------------------------|-----------|
+    | Latency min  | 52                       | 17        |
+    | Latency max  | 52                       | 17        |
+    | Interval min | 53                       | 18        |
+    | Interval max | 53                       | 18        |
+    
