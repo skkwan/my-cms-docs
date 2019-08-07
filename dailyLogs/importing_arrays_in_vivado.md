@@ -73,7 +73,7 @@ Downloaded and started doing the Vivado HLS tutorials:
     * 0.773 (0.811) for @B = 0.30
   * Input contained 19 FEVT files
 
-- Goal for today: import toy example table into HLS!
+- [Done] Goal for today: import toy example table into HLS.
   * Wrote testbench file to access a .txt file (must be also attached in the Test Bench in the GUI)
   * Header file specifies dimensions of .txt array (3x3 for toy example)
   * Wrote a touchArray.c function that only serves as a function to be synthesized (adds 0.0 to all elements)
@@ -85,17 +85,13 @@ Downloaded and started doing the Vivado HLS tutorials:
     * Had to re-start VNC server
   * Utilization estimates: same for with and without the RAM_1P_LUTRAM directive
 
-    |          | solution1 and solution 2 |
-    |----------|--------------------------|
-    | BRAM_18K | 0                        |
-    | DSP48E   | 2                        |
-    | FF       | 251                      |
-    | LUT      | 244                      |
-    | URAM     | 0                        |
-
-  * solution3 unrolls both `for` loops in touchArray.c in directives:
+    |Toy example | Description                                              |
+    |------------|----------------------------------------------------------|          
+    |solution1   | no directives                                            |
+    |solution2   | solution 1 and use RAM_1P_LUTRAM for myArray             |
+    |solution3   | solution 1, 2, and unroll both for loops in touchArray() | 
     
-    |          | solution1 and solution 2 | solution3 |
+    |          | solution1 and solution2  | solution3 |
     |----------|--------------------------|-----------|
     | BRAM_18K | 0                        | 0         |
     | DSP48E   | 2                        | 2         |
@@ -103,10 +99,25 @@ Downloaded and started doing the Vivado HLS tutorials:
     | LUT      | 244                      | 317       |
     | URAM     | 0                        | 0         |
     
-    |              | solution1 and solution 2 | solution3 |
+    |              | solution1 and solution2  | solution3 |
     |--------------|--------------------------|-----------|
     | Latency min  | 52                       | 17        |
     | Latency max  | 52                       | 17        |
     | Interval min | 53                       | 18        |
     | Interval max | 53                       | 18        |
-    
+
+  * so from this toy example we can see the tradeoff between resource usage and latency.
+
+- [Done] Next goal for today: implement checking in the test bench with the toy example table.
+  * Added this to testbench, but now I realize the .txt table's entries should all
+    be floats with the same number of decimals or the `diff` system call won't work
+  * So I need to change `makeTable.C` in the master branch on lxplus     
+  * ~~Opens can of worms where I need to update makeTable.C to use the new set of variables
+    from the new analyzer's ntuples~~ (Done)
+  * Implemented successful checking with golden output for toy example (had to finangle 
+    the number of digits to print)
+
+## Thursday (Aug 7, 2019)
+
+- Goal for today: import current version of the weights table into HLS!
+  * Testbench isn't passing at the moment due to float precision issues.
