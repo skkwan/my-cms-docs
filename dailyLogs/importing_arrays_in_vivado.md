@@ -47,5 +47,6 @@ Downloaded and started doing the Vivado HLS tutorials:
 
 - 40 jobs remaining on 2019_Aug5-GluGluHiggsToTauTau-200PU-try1
 
-
+- Continued doing tutorials, see Procedures folder
+- 
 
