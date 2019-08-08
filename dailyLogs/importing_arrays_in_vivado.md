@@ -119,5 +119,15 @@ Downloaded and started doing the Vivado HLS tutorials:
 
 ## Thursday (Aug 7, 2019)
 
-- Goal for today: import current version of the weights table into HLS!
-  * Testbench isn't passing at the moment due to float precision issues.
+- [Done] Goal for today: import current version of the weights table into HLS!
+  * Testbench isn't passing at the moment due to float issues (e.g. -2.000 becomes -1.9999)
+
+    |          | No optimizations | Available |
+    |----------|------------------|-----------|
+    | BRAM_18K | 0                | 624       |
+    | DSP48E   | 2                | 1728      |
+    | FF       | 286              | 460800    |
+    | LUT      | 293              | 230400    |
+    | URAM     | 0                | 96        |
+
+- Floats don't play well well HLS, we should switch to ints
