@@ -118,6 +118,8 @@ Downloaded and started doing the Vivado HLS tutorials:
     the number of digits to print)
 
 ## Thursday (Aug 7, 2019)
+- Killed remaining `2019_Aug5-GluGluHiggsToTauTau-200PU-try1` jobs, submitting 65 `2019_Aug8-GluGluHiggsToTauTau-200PU` jobs
+  - Off the bat, 12 jobs were held because: `Job has gone over memory limit of 2048 megabytes. Peak usage: 2048 megabytes.`
 
 - [Done] Goal for today: import current version of the weights table into HLS!
   * Testbench isn't passing at the moment due to float issues (e.g. -2.000 becomes -1.9999)
@@ -130,4 +132,6 @@ Downloaded and started doing the Vivado HLS tutorials:
     | LUT      | 293              | 230400    |
     | URAM     | 0                | 96        |
 
-- Floats don't play well well HLS, we should switch to ints
+- Floats don't play well with HLS, we should switch to ints
+
+
