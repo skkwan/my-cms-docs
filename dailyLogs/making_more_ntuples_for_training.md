@@ -45,6 +45,39 @@ Issues:
 1. ~~I can't find a no-pileup ggHtautau sample with FEVT parent files, only AODSIM~~ Solution: need to get the parents of the AODSIM.
 
 
+## Tuesday (Aug 13, 2019)
+
+To-do:
+1. ✓ Merge all available 200 PU samples.
+2. ✓ Train on all available 200 PU samples.
+   * 6671 signal and 5227 background training events
+   * 800 trees, max depth of 3
+   * Average ROC-Int: 0.767, std. deviation over 5 folds is 0.01
+   * Signal efficiencies for test/training samples:
+     * @B=0.01: 0.159 (0.163)
+     * @B=0.10: 0.438 (0.464)
+     * @B=0.30: 0.691 (0.697) 
+3. ✓ Decide if more 200 PU samples are needed.
+   * Yes, generating more 200 PU DYtoLL samples.
+   * Had to kill 12 jobs because they went over the memory limit of 2048 MB.
+4. ✓ Write .C script to call the calculateEfficiencies function.
+5. ✓ Try compiling and running it.
+6. ✓ Try running analyzer on 106x samples interactively before submitting bash jobs
+7. ✓ Generate first efficiency plot (as a function of BDT cut)
+8. ✓ Define Loose, Medium, and Tight working points based on the BDT discriminator cut,
+   for 90%, 80%, and 75% efficiency respectively.
+   * Bad eyeballing:
+     * 90% efficiency -> cutoff of -0.3
+     * 80% efficiency -> cutoff of -0.185
+     * 75% efficiency -> cutoff of -0.1
+9. ✓ Efficiency plot: x-axis should be recoPt from 0 to 100 GeV,
+   then create a 20 GeV "turn-on curve by requiring l1Pt > 20 GeV"
+10. Edit efficiency vs. recoPt plot so it overlays the different working points curves
+
+
+
+
+
 
 
 
