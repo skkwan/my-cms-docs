@@ -17,6 +17,7 @@
 ### Discussed with Isobel:
 
 **Q:** Are we doing a tag and probe measurement?
+
 **A:**
 *  No, only an efficiency study, although tag and probe can be used in the context of measuring
    the trigger efficiency (see https://amva4newphysics.wordpress.com/2017/02/15/tagging-and-probing/)
@@ -24,15 +25,26 @@
 * Implement as a standalone ROOT C macro
 
 **Q:** Should I use a minimum bias sample to evaluate the efficiency?
+
 **A:** No, efficiencies are evaluated with events that have true taus. Rates are evaluated with Min Bias/ZeroBias/QCD samples.
 
 **Q:** What sample should I evaluate the efficiency on?
+
 **A:** Try
         `/NeutrinoGun_E_10GeV/PhaseIIMTDTDRAutumn18MiniAOD-PU200_103X_upgrade2023_realistic_v2-v1/MINIAODSIM`
 
 Other notes:
 1. Should train on no-pileup DYLL+ggH and pileup DYLL+ggH
    * so I need to make ntuples 
+
+**Q:** Data Aggregation Service is only listing AODSIM files as parents of miniAODs. Can we use them?
+
+**A:** The tiers we need are RAW and Mini. 
+
+Issues:
+1. ~~I can't find a no-pileup ggHtautau sample with FEVT parent files, only AODSIM~~ Solution: need to get the parents of the AODSIM.
+
+
 
 
 
