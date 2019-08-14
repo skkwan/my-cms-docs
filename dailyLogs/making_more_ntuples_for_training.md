@@ -72,9 +72,38 @@ To-do:
      * 75% efficiency -> cutoff of -0.1
 9. ✓ Efficiency plot: x-axis should be recoPt from 0 to 100 GeV,
    then create a 20 GeV "turn-on curve by requiring l1Pt > 20 GeV"
-10. Edit efficiency vs. recoPt plot so it overlays the different working points curves
+10. ✓ Edit efficiency vs. recoPt plot so it overlays the different working points curves
+
+## Wednesday (Aug 14, 2019)
+
+To-do:
+1. Prepare neutrinoGun samples for making rate plots.
+   * ✓ Remove limit on job size.
+   * Submit two neutrinoGun jobs only, see how they look
+2. ✓ Assess status of PU200 and noPU dataset.
+   * DYtoLL no-pileup, ggHtautau 200 PU done; have some DYtoLL 200PU, no ggHtautau no-pileup
+3. Submit aodsim solution for 106x samples (ggHtoTauTau noPU)
+3. ✓ Change plot style of efficiency plot to bullet points.
+4. ✓ Add error bars to efficiency plot.
+   * ★  Learned that if I just pass the efficiency as a float, I'm losing all the systematics
+     error
+   * ✓ Propagate uncertainty in calculating the divisor
+5. ✓ Switch to histogram approach for efficiency plots
+   * ✓ Fill numerator and denominator histograms
+     * ✓ Histogram is a count of events in each bin
+     * ✓ Histograms should be a function
+   * ✓ Restructure numerator/denominator calculation  
+6. ✓ Touch up plot style
+   * ✓ Add dotted grid lines	
+   * ✓ Change x-axis label to LaTeX formatting
+   * ✓ Make x- and y- axis labels larger
+   * ✓ Move legend to bottom right
+7. Physics tweaks to efficiency plot
+   * See if using Drell-Yan + ggH will make more low-recoPt bins
 
 
+
+8. Figure out how to make rate plots.  
 
 
 
