@@ -99,11 +99,74 @@ To-do:
    * ✓ Make x- and y- axis labels larger
    * ✓ Move legend to bottom right
 7. Physics tweaks to efficiency plot
-   * See if using Drell-Yan + ggH will make more low-recoPt bins
+   * ✓ See if using Drell-Yan + ggH will make more low-recoPt bins (it doesn't)
+   * ✓ Make sure the BDT was trained on 200 PU:
+     * ★  There is some over-training: I should make more DYtoLL 200 PU if possible
 
+## Thursday (Aug 15, 2019)
 
+1. ✓ Send plot to Isobel and ask about low-recopT points and whether logic of "if" statements is correct
 
-8. Figure out how to make rate plots.  
+### Feedback
+- deltaR matching between L1 and reco, and L1 and gen taus, is done in the analyzer when the tree is filled.
+- Taus in general have a low purity and low efficiency.
+- Often electrons, muons, jets can be reconstructed as Tau and on top of that, only ~80% of all gen level taus are reconstructed due to tracking inefficiency.
+- We measure the efficiency for hadronic taus because taus that decay weakly to electrons and 
+  muons are identified in the detector as electronics and muons.
+  It is nearly impossible to discern between electrons and muons that originate directly
+  (promptly) from taus and those that originate directly from Z bosons, for example.
+- So taus that decay to electrons or muons simply use electron or muon triggers.
+- Hadronic taus have a limited number of decays and typically the more rare ones 
+  (1 prong + 2 pi0 for instance) will be reconstructed in one of the other decay modes (1prong + 1 pi0). 
+- See: Decay mode migration
+- So we want to make two plots:
+  - Efficiency as a function of recoPt, using reco taus matched to gen taus that decayed
+    hadronically.
+  - Efficiency as a function of genPt
+
+OK'd by Isobel: commit [https://github.com/skkwan/phase2L1BTagAnalyzer/blob/69a4bf9c254eabc67a4f5cc1323d7af9b018efc7/tau_exercise/efficiency_plots/calculateEfficiency.C](69a4bf9). Below lines include `recoDM == 10` to plot efficiency
+only for one decay mode.
+
+```
+if (variable == "genPt")
+        {
+          passesOverallCut = ((genPt > genPtCut) &&
+                              passesEta &&
+                              (recoDM == 10)
+                              );
+        }
+      else if (variable == "recoPt")
+        {
+          passesOverallCut = ((recoPt > recoPtCut) &&
+                              (genPt > genPtCut) &&
+                              passesEta &&
+                              (recoDM == 10)
+                              );
+        }
+```
+
+1. ✓ Added no-BDT cut efficiency points: perhaps disappointingly, the BDT cut efficiencies are basically
+   the same
+2. Isobel diagnosed: for DM = 1 (1 prong pi0)
+   
+```
+root [18] efficiencyTree->SetLineColor(kBlue)
+root [19] efficiencyTree->Draw("genEta","recoPt>20&&genPt>20&&recoDM==1&&l1Pt>20")
+(long long) 2078
+root [20] efficiencyTree->SetLineColor(kRed)
+root [21] efficiencyTree->Draw("genEta","recoPt>20&&genPt>20&&recoDM==1","same")
+```
+
+(I think the background events have a strange distribution where there are many in abs(genEta) < 1.5.)
+
+3. ✓ Split up efficiency by decay mode (putting the same recoDM requirement in numerator and denominator)
+   [https://www.dropbox.com/sh/yzod7wqlcncnrqe/AAAib0Jy1CC6NoGd-0NzQSfda?dl=0](Link to Dropbox plots)
+   * Strange: typically decay mode 10 has the worst efficiency because	    
+     we lose the lowest pT track from time to time. 
+   * In these plots, decay mode 0 seems to have the worst efficiency.
+   * Decay mode 0 = 1-prong
+   * Decay mode 1 = 1-prong + pi0
+   * Decay mode 10 = 3-prong
 
 
 
