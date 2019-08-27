@@ -73,5 +73,28 @@ https://github.com/skkwan/phase2L1TauAnalyzer/blob/93673af5f8b5f7344fabf6404c6f1
    a few bins are still poking over and I don't know why 
 3. ✓ Made LaTeX document for experimental project report
 
+## Friday (Aug 23, 2019)
 
+1. Still waiting for jobs to finish running
+2. ✓ Started writing background for experimental project report
 
+## Monday (Aug 26, 2019)
+
+1. ✓ Made slides for group meeting https://www.overleaf.com/project/5d63c7b7de7b0c16fa85b665
+2. Isobel suggested workaround for >72 hour jobs: lower max number of events
+3. ✓ Fixed >1.0 efficiency bars, still have <0.0 lower limits though
+
+## Tuesday (Aug 27, 2019)
+
+I decided to do a *no-pileup* study first for debugging missing L1 taus, simply because it will
+take less time to run jobs. I will train on a no-pileup n-tuple made using the old analyzer
+(even though it is missing L1 taus), and then make the efficiency plots using that BDT and an
+n-tuple with the L1 track info.
+
+To-do for next month:
+1. Submit jobs for no-pileup Drell-Yan
+2. Submit jobs for no-pileup GluGluHiggsToTauTau
+3. No-pileup L1 track study
+4. Keep track of how many Drell-Yan and GluGluHiggsToTauTau samples I am combining
+5. Make game plan for experimental project presentation and report
+6. Make 200-pileup n-tuples with the L1 track information.

@@ -28,7 +28,7 @@
 
 **A:** No, efficiencies are evaluated with events that have true taus. Rates are evaluated with Min Bias/ZeroBias/QCD samples.
 
-**Q:** What sample should I evaluate the efficiency on?
+**Q:** What sample should I evaluate rates on?
 
 **A:** Try
         `/NeutrinoGun_E_10GeV/PhaseIIMTDTDRAutumn18MiniAOD-PU200_103X_upgrade2023_realistic_v2-v1/MINIAODSIM`
