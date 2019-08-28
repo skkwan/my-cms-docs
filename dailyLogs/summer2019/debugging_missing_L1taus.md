@@ -92,9 +92,19 @@ take less time to run jobs. I will train on a no-pileup n-tuple made using the o
 n-tuple with the L1 track info.
 
 To-do for next month:
-1. Submit jobs for no-pileup Drell-Yan
-2. Submit jobs for no-pileup GluGluHiggsToTauTau
+1. Submit jobs for no-pileup Drell-Yan for training (`/two-file-batch-example`)
+   * ✓ Submitted 2 test jobs with name `2019_Aug27-DYToLL_NoPU_withL1Tracks-mini` using MC files from
+   [https://github.com/skkwan/phase2L1TauAnalyzer/tree/17ef541fefdd11d149acfc8ef239c9fab2d1ab0a/test/two-file-batch-example](commit)
+   `17ef541`.
+   * When 2 test jobs finish running, submit all jobs.
+2. Submit jobs for no-pileup GluGluHiggsToTauTau for training (`/aodsim-two-file-batch`)
+   * ✓ Submitted 2 test jobs with name `2019_Aug27-ggHtautau_noPU-MINI-try2`.
+   * When 2 test jobs finish running, submit all jobs.
 3. No-pileup L1 track study
 4. Keep track of how many Drell-Yan and GluGluHiggsToTauTau samples I am combining
 5. Make game plan for experimental project presentation and report
 6. Make 200-pileup n-tuples with the L1 track information.
+
+## Wednesday (Aug 28, 2019)
+
+Updated above bullet points.
