@@ -96,15 +96,19 @@ To-do for next month:
    * ✓ Submitted 2 test jobs with name `2019_Aug27-DYToLL_NoPU_withL1Tracks-mini` using MC files from
    [https://github.com/skkwan/phase2L1TauAnalyzer/tree/17ef541fefdd11d149acfc8ef239c9fab2d1ab0a/test/two-file-batch-example](commit)
    `17ef541`.
-   * When 2 test jobs finish running, submit all jobs.
+   * ✓ When 2 test jobs finish running, submit all jobs.
+   * Wait for 36 jobs to finish running (name: `2019_Aug28-DYToLL_NoPU_withL1Tracks-DYToLL-M50-NoPU`).
 2. Submit jobs for no-pileup GluGluHiggsToTauTau for training (`/aodsim-two-file-batch`)
-   * ✓ Submitted 2 test jobs with name `2019_Aug27-ggHtautau_noPU-MINI-try2`.
+   * ✓ ~~Submitted 2 test jobs with name `2019_Aug27-ggHtautau_noPU-MINI-try2`.~~ Failed because I used MINIAODSIM 
+     instead of AODSIM
+   * Re-submitted 2 jobs (name: `2019_Aug28-ggHtautau_noPU-MINI-try2`)
    * When 2 test jobs finish running, submit all jobs.
 3. No-pileup L1 track study
 4. Keep track of how many Drell-Yan and GluGluHiggsToTauTau samples I am combining
-5. Make game plan for experimental project presentation and report
+5. ✓ Make game plan for experimental project presentation and report
 6. Make 200-pileup n-tuples with the L1 track information.
 
 ## Wednesday (Aug 28, 2019)
 
 Updated above bullet points.
+
