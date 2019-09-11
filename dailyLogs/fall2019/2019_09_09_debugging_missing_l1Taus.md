@@ -17,8 +17,12 @@ Based on to-do list from last log:
        * hadded into `2019_Aug30-DYToLL_NoPU_withL1Tracks.root`
    * ✓ Re-train BDT on no-PU ggHtautau and DYtoLL. 
      (combined into `2019_Sep9_noPU.root`)
+
+     To get number of signal events, open the ROOT file and in the command line run:
+     ```efficiencyTree->Draw("l1Pt", "l1Pt>0 && !isinf(l1Pt) && !isinf(l1Eta) && !isinf(l1StripPt) && !isinf(l1DM) && !isinf(l1PVDZ) && !isnan(l1Pt) && !isnan(l1Eta) && !isnan(l1StripPt) && !isnan(l1DM) && !isnan(l1PVDZ) && (genPt>20)")```
+     and do `genPt < 20` to get number of background events.
      
-     |                                                       | # signal events | # bkg events |
+     | Training                                              | # signal events | # bkg events |
      |-------------------------------------------------------|-----------------|--------------|
      | 2019_Aug28-DYToLL_NoPU_withL1Tracks.root              | 16,330          | 20,420       |
      | 2019_Aug30-DYToLL_NoPU_withL1Tracks.root              | 20,780          | 26,362       |
@@ -34,10 +38,19 @@ Based on to-do list from last log:
      * ggHtautau
        * `/hdfs/store/user/skkwan/2019_Aug29-ggHtautau_noPU-try2/SUB-Analyzer-[6-9]-*.root`
        * `/hdfs/store/user/skkwan/2019_Aug29-ggHtautau_noPU-try2/SUB-Analyzer-11-*.root`
+         * hadded into `2019_Aug29-ggHtautau_noPU_withL1Tracks_secondhalf.root`
      * DYtoLL: `/hdfs/store/user/skkwan/2019_Sep10-DYToLL_NoPU_withL1Tracks` (orthogonal to `2019_Aug30-DYToLL_NoPU_withL1Tracks.root`)
+
+     | Evaluation                                             | # signal events | # bkg events |
+     |--------------------------------------------------------|-----------------|--------------|
+     | 2019_Sep10-DYToLL_NoPU_withL1Tracks.root               | 33,440          | 42,373       |
+     | 2019_Aug29-ggHtautau_noPU_withL1Tracks_secondhalf.root | 3,946           | 2,656        |
+     | Total                                                  | 37,386          | 45,029       |
+
    * ✓ Edit `makeEfficiencyPlots.C` so it adds an efficiency line for reco-tau efficiency with L1
      Track 
    * Compare the efficiencies.
+   * Big-time debugging
 4. 200-pileup L1 track study
 
 ## Tuesday (Sep 10, 2019)
@@ -54,4 +67,7 @@ Now we want, "For all reconstructed, gen-matched hadronic Taus, how often would 
 ## Wednesday (Sep 11, 2019)
 
 Updating above bullet points.
+
+- The efficiency plot looks like a mess: the "turn-on" curve shape isn't present.
+- Debug: try making plot without the efficiency sanity check.
 
