@@ -29,16 +29,29 @@ Based on to-do list from last log:
        * @B=0.01: 0.094 (0.095)
        * @B=0.10: 0.363 (0.372)
        * @B=0.30: 0.691 (0.696)
-   * Make **evaluation samples** no-PU ggHtautau and DYtoLL.
+   * Make **evaluation samples** no-PU ggHtautau and DYtoLL (must be different samples than what was 
+     used for training)
      * ggHtautau
        * `/hdfs/store/user/skkwan/2019_Aug29-ggHtautau_noPU-try2/SUB-Analyzer-[6-9]-*.root`
        * `/hdfs/store/user/skkwan/2019_Aug29-ggHtautau_noPU-try2/SUB-Analyzer-11-*.root`
-     * DYtoLL
-       * Two test jobs: `2019_Sep9-DYToLL_NoPU_withL1Tracks-MINI`
-       * Submit all jobs when those test jobs complete
-   * Run `makeEfficiencyPlots.C` using L1 taus.
-   * ✓ Edit `makeEfficiencyPlots.C` using L1 track with least dR separation from reco tau.
-   * Run `makeEfficiencyPlots.C` using L1 **track** with least dR separation from reco tau. 
-   * Compare the plots.
+     * DYtoLL: `/hdfs/store/user/skkwan/2019_Sep10-DYToLL_NoPU_withL1Tracks` (orthogonal to `2019_Aug30-DYToLL_NoPU_withL1Tracks.root`)
+   * ✓ Edit `makeEfficiencyPlots.C` so it adds an efficiency line for reco-tau efficiency with L1
+     Track 
+   * Compare the efficiencies.
 4. 200-pileup L1 track study
+
+## Tuesday (Sep 10, 2019)
+
+Updating above bullet points. 
+
+Clarified with Isobel: Previously what we were checking was the L1 Tau Reconstruction efficiency so, 
+"For all reconstructed, gen-matched hadronic Taus how often would that Tau have been triggered at L1?" 
+Now we want, "For all reconstructed, gen-matched hadronic Taus, how often would that Tau have an L1 Track?". 
+
+- ~~Getting this error when I ssh to hep.wisc.edu~~ Fixed
+- Clarified what the sanity-check efficiency plot should look like.
+
+## Wednesday (Sep 11, 2019)
+
+Updating above bullet points.
 
