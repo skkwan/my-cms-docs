@@ -69,5 +69,23 @@ Now we want, "For all reconstructed, gen-matched hadronic Taus, how often would 
 Updating above bullet points.
 
 - The efficiency plot looks like a mess: the "turn-on" curve shape isn't present.
-- Debug: try making plot without the efficiency sanity check.
+- Need to debug plotting script.
+- Printing entries using `Scan` shows that for true taus, a L1 track **is** being found correctly for
+  reco and L1 taus:
+- Last step for debugging is to add pfcandidate matching to the tree: example:
+  https://github.com/cms-l1t-offline/cmssw/blob/phase2-l1t-integration-CMSSW_10_6_0_pre4/L1Trigger/Phase2L1Taus/plugins/L1PFTauProducer.cc#L45-L48
+- In adding PF Candidates: getting this error after file is opened and after customary "Finding vertices using
+  a DBSCAN algorithm... L1 RegionMapper: made 1 regions..." messages:
+
+  ```
+  ----- Begin Fatal Exception 12-Sep-2019 08:28:44 CDT-----------------------
+  An exception of category 'Configuration' occurred while
+   [0] Constructing the EventProcessor
+   [1] Constructing module: class=phase2L1TauAnalyzer label='L1TauAnalyzer'
+   Exception Message:
+   MissingParameter: Parameter 'L1PFObjects' not found.
+   ----- End Fatal Exception -------------------------------------------------
+   ```
+
+## Thursday (Sep 12, 2019)
 
