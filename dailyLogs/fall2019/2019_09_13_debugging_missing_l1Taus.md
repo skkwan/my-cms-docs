@@ -62,3 +62,15 @@ Retraining on ONLY DYToLL since glugluHiggsToTauTau is problematic:
 
 - If I only use the DYtoLL samples for training/evaluation, the efficiencies look like
   turn-on curves albeit with a dip at high pT, and huge error bars. 
+
+## Tuesday (Sep 17, 2019)
+
+- (Evaluation set) Submitting batch jobs to put PF Cand and L1 tracks in no-pileup Drell-Yan to try and reduce error bars.
+- Emailed Cristina and Vladimir with questions.
+
+## Wednesday (Sep 18, 2019)
+
+- Trying interactive ggHtautau job with changing cms.Process('REPR',eras.Phase2C4_trigger) to process = cms.Process('REPR',eras.Phase2C8_trigger) 
+  - Still missing tracks. Will put this on backburner
+- ~~Still don't understand why no-BDT efficiency is higher than everything else~~
+
