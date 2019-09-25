@@ -8,7 +8,7 @@
 
 - PF Cands added
 - Re-visiting L1 tracks checking because now I'm not so sure the track efficiencies are ok
-- ```efficiencyTree->Scan("recoPt:l1Track_pt:pfCand_pt:l1Pt", "(recoPt>15)&&(genPt>15)&&(abs(recoEta)<0.774)&&(recoDM==0)")```
+- ```efficiencyTree->Scan("recoPt:l1Track_pt:pfCand_pt:l1Pt", "(recoPt>15)&&(genPt>15)&&(abs(recoEta)<1.44)&&(recoDM==0)")```
 - PF Cands will let us resolve whether PF Level 1 or L1 tau producer is having issues
 
 - Updated all analyzers to be the PF Cand version

@@ -9,7 +9,6 @@
    ```cmssw/L1Trigger/Phase2L1Taus/plugins/L1PFTauProducer.cc```
   [https://github.com/cms-l1t-offline/cmssw/blob/phase2-l1t-integration-CMSSW_10_6_0_pre4/L1Trigger/Phase2L1Taus/plugins/L1PFTauProducer.cc#L45]((link))
   as well as from the analyzer.
-- I am running on batch jobs on an evaluation set to re-make the efficiency plot.
 
 ### Rates
 - I also got a handy run-down on what rates are, and updated the ```phase2L1TauAnalyzerRates.cc`` and config
@@ -35,3 +34,12 @@ Helpful code snippet:
     rateHisto->SetBinContent(i, Sum);
   }
 ```
+
+## Monday Sep 23 2019
+- Key issue: I need to ```scram b -j 8``` from the **L1Trigger* directory, if I change the L1PFTau producer.
+- More precisely: ```USER_CXXFLAGS="-Wno-delete-non-virtual-dtor -Wno-error=unused-but-set-variable -Wno-error=unused-variable" scram b```
+
+- Made rates plot from example ROOT file.
+
+## Wednesday Sep 25 2019
+
