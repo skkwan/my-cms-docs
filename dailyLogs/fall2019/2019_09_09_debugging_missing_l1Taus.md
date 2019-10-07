@@ -89,3 +89,51 @@ Updating above bullet points.
 
 ## Thursday (Sep 12, 2019)
 
+- Fixed the above problem (see Pages document) but now get
+
+  ```
+  Begin processing the 1st record. Run 1, Event 462009, LumiSection 1849 on stream 0 at 12-Sep-2019 08:46:19.248 CDT
+----- Begin Fatal Exception 12-Sep-2019 08:46:29 CDT-----------------------
+An exception of category 'ProductNotFound' occurred while
+   [0] Processing  Event run: 1 lumi: 1849 event: 462009 stream: 0
+   [1] Running path 'analyzer'
+   [2] Calling method for module phase2L1TauAnalyzer/'L1TauAnalyzer'
+Exception Message:
+Principal::getByToken: Found zero products matching all criteria
+Looking for type: std::vector<l1t::PFCandidate>
+Looking for module label: L1PFProducer
+Looking for productInstanceName: L1PFObjects
+
+   Additional Info:
+      [a] If you wish to continue processing events after a ProductNotFound exception,
+add "SkipEvent = cms.untracked.vstring('ProductNotFound')" to the "options" PSet in the configuration.
+
+----- End Fatal Exception -------------------------------------------------
+ ```
+
+- Fixed: see Pages debugging document
+- Waiting for 4FEVT interactive job to finish.
+- HLS4ML tutorial: listened in remotely (https://indico.cern.ch/event/822126/timetable/#20190910.detailed)
+
+- New error:
+
+  ```
+  ----- Begin Fatal Exception 12-Sep-2019 14:04:59 CDT-----------------------
+An exception of category 'ProductNotFound' occurred while
+   [0] Processing  Event run: 1 lumi: 1849 event: 462009 stream: 0
+   [1] Running path 'analyzer'
+   [2] Calling method for module phase2L1TauAnalyzer/'L1TauAnalyzer'
+Exception Message:
+Principal::getByToken: Found zero products matching all criteria
+Looking for type: std::vector<pat::Tau>
+Looking for module label: slimmedTaus
+Looking for productInstanceName:
+Looking for process: RECO
+   Additional Info:
+      [a] If you wish to continue processing events after a ProductNotFound exception,
+add "SkipEvent = cms.untracked.vstring('ProductNotFound')" to the "options" PSet in the configuration.
+
+----- End Fatal Exception -------------------------------------------------
+    ```
+- Fixed by doing edmDumpEventContent on dump.root and changing the process tag to "PAT"
+- Ditto for a ProductNotFound error for module packedPFCandidates
