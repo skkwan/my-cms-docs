@@ -41,5 +41,5 @@ Helpful code snippet:
 
 - Made rates plot from example ROOT file.
 
-## Wednesday Sep 25 2019
+
 
