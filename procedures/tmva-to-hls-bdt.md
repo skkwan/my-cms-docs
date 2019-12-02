@@ -39,7 +39,8 @@ GitHub equivalent: https://github.com/skkwan/hls_taus
    * `add_files hls_taus/myproject.h`
       * Contains the top-level function, called `myproject`.
    * `add_files -tb hls_taus/myproject_test1.cpp -cflags "-std=c++0x"`
-      * Testbench: `read_vars_from_file`
+      * Testbench: `read_vars_from_file`. Specifies which `.txt` file to read the
+        input values from. 
       * `unpack_input_vars` 
 2. `vivado_hls -f script.tcl`
 3. After the csim and csynth finish, look inside `hls_taus/solution1/syn/report/myproject_csynth.rpt` to note the usage and latency.
