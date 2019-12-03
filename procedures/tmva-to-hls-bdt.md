@@ -12,7 +12,7 @@
 
 
 ## Convert TMVA BDT to HLS, estimate resource usage using all input values set to 0
-Location: `/afs/cern.ch/user/s/skkwan/Public/triggerDevel/hls4ml/tmva-to-hls`
+Location: `/afs/cern.ch/work/s/skkwan/public/triggerDevel/hls4ml`
 GitHub equivalent: https://github.com/skkwan/hls4ml/tree/bdt/tmva-to-hls
 
 1. Edit the `.yml` file to specify which `.xml` BDT weight file to use.
@@ -23,7 +23,7 @@ GitHub equivalent: https://github.com/skkwan/hls4ml/tree/bdt/tmva-to-hls
 4. n.b. The input values are all declared to be 0, in the file `tmva-to-hls-test_test.cpp`.
 
 ## (Pallabi's folder) Use Vivado HLS to convert BDT to HLS, using all input values set to random values, read in from a text file
-Location: `/afs/cern.ch/user/s/skkwan/Public/triggerDevel/hls_taus`
+Location: `/afs/cern.ch/work/s/skkwan/public/triggerDevel/hls_taus/`
 GitHub equivalent: https://github.com/skkwan/hls_taus
 
 ### Step 1: Generate .h with the desired BDT.
