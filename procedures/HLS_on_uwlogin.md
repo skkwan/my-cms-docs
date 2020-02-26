@@ -15,7 +15,7 @@ Also big thanks to https://cat.pdx.edu/platforms/mac/remote-access/vnc-to-linux/
    ```
    ssh uwlogin-via-lxplus -L5904:127.0.0.1:5904
    ```
-   (Everything sent through the remote computer's port 5903 (the second number) will be funneled into the local computer's port 5904 (the first number).)
+   (Everything sent through the remote computer's port 5904 (the second number) will be funneled into the local computer's port 5904 (the first number).)
    
    If you see this error upon login:
    ```
