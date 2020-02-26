@@ -25,12 +25,12 @@ Also big thanks to https://cat.pdx.edu/platforms/mac/remote-access/vnc-to-linux/
    ```
    On your own computer's command line, run `sudo lsof -i tcp:5904` to view the processes that are occupying the port:
    ```
-   nat-oitwireless-inside-vapornet100-10-8-4-180:~ stephaniekwan$ sudo lsof -i tcp:5904
-COMMAND  PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
-ssh     2237 stephaniekwan    6u  IPv6 0x2fda24aa3e81afb3      0t0  TCP localhost:5904 (LISTEN)
-ssh     2237 stephaniekwan    7u  IPv4 0x2fda24aa44673b33      0t0  TCP localhost:5904 (LISTEN)
-ssh     2237 stephaniekwan   11u  IPv6 0x2fda24aa3e819e73      0t0  TCP localhost:5904->localhost:51705 (CLOSE_WAIT)
+   COMMAND  PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+   ssh     2237 stephaniekwan    6u  IPv6 0x2fda24aa3e81afb3      0t0  TCP localhost:5904 (LISTEN)
+   ssh     2237 stephaniekwan    7u  IPv4 0x2fda24aa44673b33      0t0  TCP localhost:5904 (LISTEN)
+   ssh     2237 stephaniekwan   11u  IPv6 0x2fda24aa3e819e73      0t0  TCP localhost:5904->localhost:51705 (CLOSE_WAIT)
    ```
+
    Kill the process with `kill -9 [PID number]`, e.g. `kill -9 2237`, and try Step 2 again.
 
 ## 3. Connecting to the Linux system with VNC
