@@ -7,19 +7,34 @@ Also big thanks to https://cat.pdx.edu/platforms/mac/remote-access/vnc-to-linux/
 
 ## 1. Starting the VNC Server on the remote computer
 1. SSH into **uwlogin.cern.ch**. At the terminal: `vncserver -localhost -geometry 1920x1080`
-   This tells us `New 'uwlogin:3 (skkwan)' desktop is uwlogin:3`
-   If going away for days, kill the VNC server (3) using the command: `vncserver -kill :3`
+   This tells us `New 'uwlogin:4 (skkwan)' desktop is uwlogin:4`
+   If going away for days, kill the VNC server (4) using the command: `vncserver -kill :4`
 
 ## 2. Creating the SSH Tunnel from your computer
 1. Now that the VNC server is running, we need to create the SSH tunnel from your local machine to the remote host.
    ```
-   ssh uwlogin-via-lxplus -L5903:127.0.0.1:5903
+   ssh uwlogin-via-lxplus -L5904:127.0.0.1:5904
    ```
-   (Everything sent through the remote computer's port 5903 (the second number) will be funneled into the local computer's
-   port 5903 (the first number).)
+   (Everything sent through the remote computer's port 5903 (the second number) will be funneled into the local computer's port 5904 (the first number).)
+   
+   If you see this error upon login:
+   ```
+   bind [127.0.0.1]:5904: Address already in use
+   channel_setup_fwd_listener_tcpip: cannot listen to port: 5904
+   Could not request local forwarding.
+   ```
+   On your own computer's command line, run `sudo lsof -i tcp:5904` to view the processes that are occupying the port:
+   ```
+   nat-oitwireless-inside-vapornet100-10-8-4-180:~ stephaniekwan$ sudo lsof -i tcp:5904
+COMMAND  PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+ssh     2237 stephaniekwan    6u  IPv6 0x2fda24aa3e81afb3      0t0  TCP localhost:5904 (LISTEN)
+ssh     2237 stephaniekwan    7u  IPv4 0x2fda24aa44673b33      0t0  TCP localhost:5904 (LISTEN)
+ssh     2237 stephaniekwan   11u  IPv6 0x2fda24aa3e819e73      0t0  TCP localhost:5904->localhost:51705 (CLOSE_WAIT)
+   ```
+   Kill the process with `kill -9 [PID number]`, e.g. `kill -9 2237`, and try Step 2 again.
 
 ## 3. Connecting to the Linux system with VNC
-   Open TigerVNC and connect to `localhost:5903`.
+   Open TigerVNC and connect to `localhost:5904`.
 
 ## 4. Starting Xilinx Vivado HLS
    In the remote terminal, the required .sh files to source are already in my ~/.bashrc file, so just go ahead and run `vivado_hls`.
