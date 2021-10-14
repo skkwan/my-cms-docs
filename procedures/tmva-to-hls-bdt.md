@@ -42,7 +42,10 @@ GitHub equivalent: https://github.com/skkwan/hls_taus
       * Testbench: `read_vars_from_file`. Specifies which `.txt` file to read the
         input values from. 
       * `unpack_input_vars` 
-2. `vivado_hls -f script.tcl`
+2. ```
+   cd /afs/cern.ch/work/s/skkwan/public/triggerDevel
+   vivado_hls -f hls_taus/script.tcl
+   ```
 3. After the csim and csynth finish, look inside `hls_taus/solution1/syn/report/myproject_csynth.rpt` to note the usage and latency.
 4. Change the number of taus to read in, in the variable `taus_per_event` in the file `myproject_test1.cpp`. 
 
