@@ -13,3 +13,14 @@ To-do:
 
 
 ## Tuesday, Dec 3 2019
+
+To-do:
+* How to convert signed doubles to unsigned ints? Need a LSB/offset for each parameter
+* Can I feed the doubles straight into the C evaluation?
+
+## Wednesday, Dec 4 2019
+
+To-do:
+* Can have floats in the .txt file, but need to compare with TMVA BDT evaluation
+  with the restricted number of bits.
+
