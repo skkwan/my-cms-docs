@@ -1,6 +1,11 @@
 # Remote Trigger Shifts
 
-The July 2021 trigger shifter trainee slides are [here](https://indico.cern.ch/event/1053978/contributions/4429250/attachments/2274693/3863930/TriggerShifterTutorial-2021-07-01.pdf). This markdown is meant to supplement (not replace) those instructions.
+## Important links
+   1. [CMS Trigger Online Workbook TWiki](https://twiki.cern.ch/twiki/bin/viewauth/CMS/OnlineWBTrigger)
+   2. The July 2021 trigger shifter trainee slides are [here](https://indico.cern.ch/event/1053978/contributions/4429250/attachments/2274693/3863930/TriggerShifterTutorial-2021-07-01.pdf). This markdown is meant to supplement (not replace) those instructions.
+   3. The 2018 trigger shifter tutorial slides are [here](https://indico.cern.ch/event/697373/).
+   4. [CMS Online Workbook](https://twiki.cern.ch/twiki/bin/view/CMS/OnlineWB) which has a link to CMS commissioning 2021.
+   5. [CMS Glossary and Index](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGlossary).
 
 ## Setup requirements: remarks on slide 12
 
@@ -39,6 +44,8 @@ The July 2021 trigger shifter trainee slides are [here](https://indico.cern.ch/e
       * http://es-cdaq.cms/sc/ratemeter.html
       * http://cmsonline.cern.ch/daqStatusSCX/DAQstatusGrey.html
       * https://cmsweb.cern.ch/dqm/online/session/BoL695
+
+      * https://op-webtools.web.cern.ch/vistar/vistars.php
    3. Read recent ELogs:
       * https://cmsonline.cern.ch/webcenter/portal/cmsonline/Common/Elog
       * Subsystems > Trigger > Trigger (again)
@@ -46,5 +53,20 @@ The July 2021 trigger shifter trainee slides are [here](https://indico.cern.ch/e
    4. Read recent Daily Run Meeting Summary notes:
       * Go to the CMS Commissioning Hypernews: https://hypernews.cern.ch/HyperNews/CMS/get/commissioning.html
 
+## Miscellaneous notes
+
+### LHC Pilot Beam Tests 2021 
+
+   https://twiki.cern.ch/twiki/bin/viewauth/CMS/LHCpilotBeamTests_2021
+
+### For beam monitoring
+   * BPTX triggers activate when a bunch is detected. Simone says that this is viewable in OMS, in Grafana, and the uGT Swatch Cell. So far I have found it in OMS. 
+   * The LHC page 1 (linked above):
+     - In the main graph, when the beam is on, 
+     - The energy should not affect the rate, in principle (unless some crazy effect connects a trigger to the beam energy)
+
+### Miscellaneous vocab
+   - PCL: Prompt Calibration Loop, which is used online since 2016 to provide fast updates of the alignment constants in response to possibly frequent movements of the high-level structures in the detector due to changes of the temperature or the magnetic field. For each data-taking run with more than 20,000 events an alignment is performed to derive corrections (for instance) for the six degrees of freedom of the pixel's two half-barrels and four half-cylinders of the endcaps.
+   - CRC: a cyclic redundacy check (generally speaking) is error-detecting code that takes blocks of data, assign a short check value based on the remainder of a polynomial division on their contents, and repeats the calculation upon retrieval to check for discrepancies.
 
 
