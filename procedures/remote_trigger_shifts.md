@@ -1,13 +1,10 @@
 # Remote Trigger Shifts
 
-## Relevant L1T information
-   * Report on CRUZET/CRAFT shifts and outlook: https://indico.cern.ch/event/1094766/contributions/4604759/attachments/2342366/3993618/211109%20L1T%20Weekly%20meeting.pdf
-
 ## Important links
    1. [CMS Trigger Online Workbook TWiki](https://twiki.cern.ch/twiki/bin/viewauth/CMS/OnlineWBTrigger)
-   2. The July 2021 trigger shifter trainee slides are [here](https://indico.cern.ch/event/1053978/contributions/4429250/attachments/2274693/3863930/TriggerShifterTutorial-2021-07-01.pdf). This markdown is meant to supplement (not replace) those instructions.
-   3. The 2018 trigger shifter tutorial slides are [here](https://indico.cern.ch/event/697373/).
+   2. The [24 February 2022 trigger shifter training](https://indico.cern.ch/event/1127015/contributions/) slides are [here](https://indico.cern.ch/event/1127015/contributions/4730349/attachments/2397327/4129967/TriggerShifterTutorial-2022-02-24.pdf). This markdown is meant to supplement (not replace) those instructions.
    4. [CMS Online Workbook](https://twiki.cern.ch/twiki/bin/view/CMS/OnlineWB) which has a link to CMS commissioning 2021.
+      * [CMS Online Workbook L1 Trigger Keys 2018](https://twiki.cern.ch/twiki/bin/view/CMS/OnlineWBL1TriggerKeys2018)
    5. [CMS Glossary and Index](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGlossary).
 
 ## Setup requirements: remarks on slide 12
@@ -40,33 +37,51 @@
 
 ## A few hours before the shift
 
-   1. Ask to be added to the L1 Doc Hotline Mattermost.
+   1. Get up to date!
+      * Read the last couple days of the [Mattermost channels](https://mattermost.web.cern.ch/cms-online-ops/channels/mwgr-shifters--docs)
+      * Read recent Daily Run Meeting Summary on [CMS Commissioning cms-talk](https://cms-talk.web.cern.ch/c/run-coordination/commissioning/113)
+      * Understand current prescales options and when to switch between them: https://twiki.cern.ch/twiki/bin/viewauth/CMS/OnlineWBL1CollisionPrescales
+      * Get a feeling for what the target physics rates/ express rates should be
+      * Get a feeling for what L1 seeds are in the current prescales (this will inform what we keep tabs of in OMS)
+
    2. Connect to the laundry list of websites:
-      * https://l1page.cms/
-      * http://l1ts-prometheus.cms:3000/?orgId=1&refresh=10s
-      * http://es-cdaq.cms/sc/ratemeter.html
-      * http://cmsonline.cern.ch/daqStatusSCX/DAQstatusGrey.html
-      * https://cmsweb.cern.ch/dqm/online/session/BoL695
-      * https://op-webtools.web.cern.ch/vistar/vistars.php
+      * Always referring to the most recent [trigger shifter tutorial slides](https://indico.cern.ch/event/1127015/contributions/4730349/attachments/2397327/4129967/TriggerShifterTutorial-2022-02-24.pdf)...
+      * L1: http://l1ts-prometheus.cms:3000/?orgId=1&refresh=10s
+         - Top 10 seeds is actually pretty useful, it tracks the top 10 physics seeds
+      * Super important: OMS: https://cmsoms.cern.ch/cms/triggers/l1_hlt_trigger_rates?cms_run=351301&props.11291_11285.selectedCells=L1A%20physics:2,Total%20L1A:2,L1A%20random:2&props.11293_11285.selectedCells=Total:2&props.11287_11285.selectedCells=Physics:2&props.11288_11285.selectedCells=HLT_BptxOR_v2:2&props.11292_11285.selectedCells=159:16,309:16
+         - Make sure all L1 seeds of interest are tracked
+         - Press refresh during a run to update the graph
+      * Ratemeter: http://es-cdaq.cms/sc/ratemeter.html
+         - Stream physics/ stream express rate and size are super important to keep track of
+         - If rate/size is red the prescale may have been set wrong
+      * DAQ status: http://cmsonline.cern.ch/daqStatusSCX/DAQstatusGrey.html
+      * DQM online: https://cmsweb.cern.ch/dqm/online/session/BoL695
+      * LHC Page 1: https://op-webtools.web.cern.ch/vistar/vistars.php
+         - Monitor beam stability and sometimes it says helpful information about the LHC beam status (to corroborate what the shift leader is saying), if beam was lost, when the next injection will be, and so on
       * [Open the uGT SWATCH Cell > Control Panels > uGT Prescales](http://l1ts-ugt.cms:3333/urn:xdaq-application:lid=13/#!/Control%20Panels/uGT%20Prescales)
+         - Prescale is of utmost importance, also the table underneath is hard to read but tells you the prescales of every L1 trigger
+         - The DAQ shifter changes the keys (I believe) which affects which prescale menu we see on the uGT Swatch Cell, so after they change it, refresh the SWATCH Cell page and refresh the menu
+
    3. Read recent ELogs:
       * https://cmsonline.cern.ch/webcenter/portal/cmsonline/Common/Elog
       * Subsystems > Trigger > Trigger (again)
       * Subsystems > DAQ > DAQ (again) can also be useful
-   4. Read recent Daily Run Meeting Summary notes:
-      * Go to the CMS Commissioning Hypernews: https://hypernews.cern.ch/HyperNews/CMS/get/commissioning.html
-
-   5. Useful links during the shift:
-      * [LHC Pilot Beam Tests 2021 with description of prescales](https://twiki.cern.ch/twiki/bin/viewauth/CMS/LHCpilotBeamTests_2021)
-      * Change prescales and check the exact prescale applied to a certain trigger in the [uGT SWATCH](http://l1ts-ugt.cms:3333/urn:xdaq-application:lid=13/#!/Control%20Panels/uGT%20Prescales)
-      * Check when prescales were changed [(change the run number here)](https://cmsoms.cern.ch/cms/triggers/prescale?cms_run=346373&cms_run_sequence=GLOBAL-RUN)
-      * Most up-to-date L1/HLT Keys for Collisions, Circulating, etc. in [OMS](https://cmsoms.cern.ch/cms/triggers/trigger_mo?trigger_version=1)
-
+      * For some reason this page loads faster for me on Firefox
 
 
 ## Miscellaneous notes
 
+      * Change prescales and check the exact prescale applied to a certain trigger in the [uGT SWATCH](http://l1ts-ugt.cms:3333/urn:xdaq-application:lid=13/#!/Control%20Panels/uGT%20Prescales)
+  
 
+      * CMS OMS Triggers > Prescaling > Run: [(insert run number)](https://cmsoms.cern.ch/cms/triggers/prescale?cms_run=351301&cms_run_sequence=GLOBAL-RUN)
+         - Shows log of prescales used in each run and when they were changed
+      * CMS OMS Runs > Lumisections DCS status: seems to indicate in red/green squares which detectors are on standby
+      * CMS OMS Runs > Run Report: shows a TON of information
+         - Downtimes and reasons
+         - Partitions and FEDs: shows what's included and excluded
+      * CMS OMS Triggers > Trigger Modes > Version: Current
+         - Most up-to-date L1/HLT Keys for Collisions, Circulating, etc.
 
 ### At some point investigate...
    * https://cmsoms.cern.ch/cms/triggers/hlt_trigger_rates?cms_run=346373&props.4821_4818.selected=HLT_ZeroBias_Beamspot_v4,HLT_HT300_Beamspot_PixelClustersWP2_v1&props.4822_4818.selected=DQMOnlineBeamspot,ExpressAlignment
