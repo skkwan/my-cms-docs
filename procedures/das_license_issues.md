@@ -13,6 +13,8 @@ the DAS website (or other cmsweb websites):
    drop-down menu, for "When using this certificate" select "Always Trust" 
    (otherwise you'll have to enter your laptop password every time you
    use DAS's website)
+   
+   If all you need is to refresh your certificate for Google Chrome/Safari on your local machine, this is all you need to do.
 6. Still in Keychain Access, right-click on the certificate, and click on
    "Export <certificate name>". This will download a `.p12` certificate file.
 7. Place the `.p12` certificate file in the `.globus` directory of your home
