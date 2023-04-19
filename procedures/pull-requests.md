@@ -15,8 +15,9 @@ git push --force my-cmssw branchname-of-my-cms-l1t-offline
 ## To cherry-pick 
 To cherry-pick this commit from the `cms-l1t-offline` PR to the main CMSSW PR:
 ```
-# cd to the main-CMSSW PR area 
+# cd to the area where I am making my PR to the main CMSSW
+git checkout branchname-of-my-MAIN-cmssw-PR
 git fetch my-cmssw branchname-of-my-cms-l1t-offline
 git cherry-pick hash-of-squashed-commit
+git push my-cmssw branchname-of-my-MAIN-cmssw-PR
 ```
-This should be automatically reflected in the pull request page - no need to "git push" again, otherwise it will appear as a duplicate commit.
