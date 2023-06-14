@@ -3,7 +3,8 @@
 1. Install VSCode on your laptop/ personal machine: https://code.visualstudio.com/download
 2. You need this Remote Development extension from Microsoft (click "Install"): https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack 
 3. Then in principle we follow the instructions "Connect to a Remote Host" (lxplus already exists so we don't need to create our own remote host): https://code.visualstudio.com/docs/remote/ssh#_connect-to-a-remote-host 
-    * I connect to a specific machine because VSCode is funky with servers that automatically assign machines per log-in instance. So in Step 2 in the bar I type `skkwan@lxplus730.cern.ch` to connect ot one specific machine.
+    * At one point I connected to a specific machine because I thought VSCode was funky with servers that automatically assign machines per log-in instance. So in Step 2 in the bar I type `skkwan@lxplus730.cern.ch` to connect to one specific machine.
+    * But now `skkwan@lxplus.cern.ch` in Step 2 in the bar works for me.
     * It prompted me to select "Linux" and then type in my password. (You may need to type your password in a few times)
     * In the troubleshooting page it covers exactly our scenario: "Connecting to systems that dynamically assign machines per connection" (https://code.visualstudio.com/docs/remote/troubleshooting#_troubleshooting-hanging-or-failing-connections)
     * I ended up also trying the troubleshooting tip described on that page, that involves "using the `ControlMaster` option in OpenSSH" -- in the end I do not know if that's what got it to work.
