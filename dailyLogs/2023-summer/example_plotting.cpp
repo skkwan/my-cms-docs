@@ -6,16 +6,16 @@
 
 void example_plotting() {
     // Open the file
-    std::unique_ptr<TFile> myFile(TFile::Open("myFile.root"));
+    std::unique_ptr<TFile> myFile(TFile::Open("openAnalyzer.root"));
 
     // Get the TTree
-    TTree efficiencyTree = (TTree) myFile->Get("myTreeName");
+    TTree* efficiencyTree = (TTree*) myFile->Get("demo/data/EfficiencyTree");
 
-    // Create a histogram (number of bins: 50, range is 0 to 200)
-    TH1F *hist = new TH1F("hist", name , 50, -100, 400);
+    // Create a histogram (number of bins: 50, range is 0 to 3)
+    TH1F *hist = new TH1F("hist", "name", 50, 0, 3);
 
     // Draw one of the branches
-    efficiencyTree->Draw("myVariableName>>hist");
+    efficiencyTree->Draw("vRegionEcal>>hist");
 
     // Create TCanvas
     TCanvas* Tcan = new TCanvas("Tcan", "", 100, 20, 800, 600);
@@ -29,7 +29,7 @@ void example_plotting() {
     hist->SetFillStyle(1001);
     hist->Draw("HIST");
 
-    Tcan->SaveAs("example.pdf");
+    Tcan->SaveAs("~/Downloads/example.pdf");
 
     // Clean up 
     delete Tcan;
