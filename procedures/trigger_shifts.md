@@ -5,6 +5,14 @@
 * CMS OMS > CMS > Fills > Fill Plot > Fill number
 * Needs to be refreshed manually
 
+## Deeper look into L1 Grafana warning/errors from July 4, 2023
+
+What to check if the warning/error went away before you could take notes:
+
+* Drop-down menu > Dashboards > Subsystem monitoring 
+* Then in top bar: subsystem: e.g CALOL1, board: e.g. AMC13_n
+* Then in the bottom half, "All critical merics in error or warning for the selected subsystem - only these contribute to the board and subsystem status"
+
 ## Notes from May 15 2023 proton physics shift
 
 * Step-ups of instantaneos luminosity during ramp: ``default" is column 5 but at the start of ramp this is too low as indicated by the low rate (sitting at 40 kHz, when the target should be closer to 102 kHz)
