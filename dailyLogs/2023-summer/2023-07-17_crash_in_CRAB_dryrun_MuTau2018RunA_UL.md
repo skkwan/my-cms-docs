@@ -7,7 +7,7 @@ For the cmsRun config file: https://github.com/skkwan/embeddedToNanoAOD/blob/ult
 And the CRAB config file: https://github.com/skkwan/embeddedToNanoAOD/blob/ultralegacy/crabConfig/2018/crabConfig-2018A.py 
 
 
-I run, in `CMSSW_10_6_30`,
+I run, in `CMSSW_10_6_30`
 
 ```bash
 cmsenv
@@ -20,7 +20,7 @@ The printouts for both interactive and CRAB dryrun are copied below.
 
 ## Interactively the cmsRun config file works
 
-
+```
 [skkwan@login05 scripts]$ cmsRun embedding_nanoAOD_18.py
 Updating process to run DeepBoostedJet on datasets before 103X
 Updating process to run ParticleNet before it's included in MiniAOD
@@ -123,8 +123,11 @@ Error                   2                   2
 System                  3                   3
 
 dropped waiting message count 0
+```
 
 ## The same job in CRAB with dryrun option fails
+
+```
 [skkwan@login05 2018]$ crab submit --dryrun crabConfig-2018A.py
 Will use CRAB configuration file crabConfig-2018A.py
 Importing CMSSW configuration scripts/embedding_nanoAOD_18.py
@@ -640,3 +643,4 @@ Traceback:
 ======== CMSRunAnalysis.py FINISHING at Mon Jul 17 15:47:32 GMT 2023 ========
 
  StdErr: 
+```
