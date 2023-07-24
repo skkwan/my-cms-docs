@@ -11,7 +11,7 @@ In general there are 4 files needed as input to make a gridpack:
 
 
 ## To make gridpacks
-1. Set up the area, I am using `lxplus7`. No CMSSW needed at top-level, it is automatically installed when we test the gridpacks.
+1. Set up the area: I have to use `login.hep.wisc.edu` because I was running out of disk space when creating gridpacks on `lxplus`. No CMSSW is needed at top-level, it is automatically installed when we test the gridpacks.
 
 ```bash
 git clone https://github.com/cms-sw/genproductions.git -b mg265UL
@@ -38,6 +38,8 @@ cd ../../../..
 ```
 This makes a tarball in the `MadGraph5_aMCatNLO` directory.
 
+I did this step in a loop with the script `https://github.com/skkwan/ToolRoom/blob/main/monteCarloSamples/createGridPacks.py` (run from the `MadGraph5_aMCatNLO` directory), and this script also moves all the tar files to my `/hdfs/` storage area. I had to use `tmux`, and if a gridpack generation only partially completed, when I resubmitted I had to delete its directory in `MadGraph5_aMCatNLO` otherwise the command will fail.
+
 4. Validate the gridpacks
 
 Make a new directory to keep things neat: I made `genproductions/bin/MadGraph5_aMCatNLO/validation`. Point to the above-created tarball:
@@ -47,6 +49,8 @@ tar -xavf ../ggh01_M125_Toa01a01_M11_Tobbtautau_slc7_amd64_gcc700_CMSSW_10_6_19_
 # To test making 10 events, with a random seed 1, and number of cores 4:
 bash ./runcmsgrid.sh 10 1 4
 ```
+
+I also did this in a loop with the script `https://github.com/skkwan/ToolRoom/blob/main/monteCarloSamples/unzipGridPackTarballs.py`, and this script moves the resulting `.lhe` file to `/hdfs/` again. In the end it's ok to overwrite when we unpack, since we just save the `.lhe` file for further inspection.
 
 5. Check that events were created
 Open `cmsgrid_final.lhe` and check that events were created, for instance, in this example for `ggh01_M125_Toa01a01_M11_Tobbtautau`, PDG ID is in the first column from the left, and the mass is the third column from the right. 
@@ -70,3 +74,4 @@ Open `cmsgrid_final.lhe` and check that events were created, for instance, in th
 
 - The cards (just the four files) needs to go into a pull request: https://twiki.cern.ch/twiki/bin/viewauth/CMS/GitRepositoryForGenProduction 
 - And be sent to the MC contacts.
+
