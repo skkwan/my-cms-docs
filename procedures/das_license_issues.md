@@ -13,6 +13,7 @@ the DAS website (or other cmsweb websites):
    drop-down menu, for "When using this certificate" select "Always Trust" 
    (otherwise you'll have to enter your laptop password every time you
    use DAS's website)
+6. You need two more certificates: `CERN Root Certification Authority 2 Certificate` and `CERN Grid Certificate Authority (1) Certificate`: [https://cafiles.cern.ch/cafiles/certificates/Download.aspx?ca=grid]. When clicking on these, it should open Keychain Access, but you might need to open `Certificates` (it won't be in `My Certificates`). And click "always trust"
    
    If all you need is to refresh your certificate for Google Chrome/Safari on your local machine, this is all you need to do.
 6. Still in Keychain Access, right-click on the certificate, and click on
