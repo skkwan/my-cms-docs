@@ -24,6 +24,11 @@ Wisdom from the help desk: "cmstrigger02 is running, but you won't be able to co
     ```bash
     # To copy and paste in the TigerVNC GUI, on Mac, press Ctrl+Shift+V
     source /opt/Xilinx/Vitis/2021.1/settings64.sh
-    vitis_hls 
-    # or vitis_hls -f flag for no GUI
+    vitis_hls -i  
+    # -i is interactive mode, vitis_hls -f flag for no GUI
     ```
+
+Instead of steps #3 and #4 apparently you can also use the jump host -J option to ssh to do it all in one command:
+```bash
+ssh -L 15901:127.0.0.1:15901 -J skkwan@login01.hep.wisc.edu skkwan@cmstrigger02.hep.wisc.edu
+```
