@@ -19,7 +19,7 @@ Wisdom from the help desk: "cmstrigger02 is running, but you won't be able to co
     # connect to cmstrigger02
     login.hep $ ssh -L 5901:127.0.0.1:5901 cmstrigger02.hep.wisc.edu
     ```
-4. Open TigerVNC and connect, again using 1590X where X is the display number, and enter the VNC password 
+4. Open TigerVNC and connect, again using 590X where X is the display number, and enter the VNC password 
 5. In the TigerVNC window, open a terminal and run
     ```bash
     # To copy and paste in the TigerVNC GUI, on Mac, press Ctrl+Shift+V
