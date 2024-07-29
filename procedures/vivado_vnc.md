@@ -12,12 +12,12 @@ Wisdom from the help desk: "cmstrigger02 is running, but you won't be able to co
 3. Then back in my laptop, in a different terminal than step 1 (change 5906 to 590X, where X is the display number)
     ```bash
     # connect to a login node (and tunnel a port to your local computer)
-    ssh -L 15901:127.0.0.1:15901 skkwan@login.hep.wisc.edu
+    ssh -L 5901:127.0.0.1:5901 skkwan@login.hep.wisc.edu
     ```
     Once in `login.hep`,
     ```bash
     # connect to cmstrigger02
-    login.hep $ ssh -L 15901:127.0.0.1:5901 cmstrigger02.hep.wisc.edu
+    login.hep $ ssh -L 5901:127.0.0.1:5901 cmstrigger02.hep.wisc.edu
     ```
 4. Open TigerVNC and connect, again using 1590X where X is the display number, and enter the VNC password 
 5. In the TigerVNC window, open a terminal and run
@@ -27,8 +27,3 @@ Wisdom from the help desk: "cmstrigger02 is running, but you won't be able to co
     vitis_hls -i  
     # -i is interactive mode, vitis_hls -f flag for no GUI
     ```
-
-Instead of steps #3 and #4 apparently you can also use the jump host -J option to ssh to do it all in one command:
-```bash
-ssh -L 15901:127.0.0.1:15901 -J skkwan@login01.hep.wisc.edu skkwan@cmstrigger02.hep.wisc.edu
-```
