@@ -30,8 +30,8 @@ the DAS website (or other cmsweb websites):
    ```
    rm -f usercert.pem
    rm -f userkey.pem	
-   openssl pkcs12 -in myCertificate.p12 -clcerts -nokeys -out usercert.pem
-   openssl pkcs12 -in myCertificate.p12 -nocerts -out userkey.pem
+   openssl pkcs12 -in myCertificate.p12 -clcerts -nokeys -out usercert.pem -legacy
+   openssl pkcs12 -in myCertificate.p12 -nocerts -out userkey.pem -legacy
    chmod 400 userkey.pem
    chmod 400 usercert.pem
    ```
