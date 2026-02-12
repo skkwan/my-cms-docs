@@ -1,13 +1,24 @@
-# Accessing torrey machine
+# Accessing torreys machine
 
 1. SSH into one of the login nodes, culogin01.colorado.edu, culogin02.colorado.edu, or culogin03.colorado.edu
 2. SSH into torreys: `ssh skkwan@torreys.colorado.edu` (same password as above)
 3. This is already in `~/.bashrc` so you don't need to do this manually, but `source ~/bin/setup.sh` (sets up version 2022.2)
 4. `cd /nfs/data41/skkwan/LibHLS/Modules/MET/test`
 5. `python3 setup_tcl.py`
-6. `vitis_hls -f run_hls_csim.tcl`
-etc.
-
+6. `vitis_hls -f run_hls_make.tcl`: makes the Vitis HLS project that is used by all the
+other steps
+7. `vitis_hls -f run_hls_csim.tcl`: runs the C-simulation; this basically just compiles
+the C++ test bench, runs it, and if it returns zero, says the
+C-simulation passed
+8. `vitis_hls -f run_hls_csynth.tcl`: runs the C-synthesis; this turns the C++ into
+actual RTL
+9. `vitis_hls -f run_hls_cosim.tcl`: runs the C/RTL cosimulation; this runs an actual
+RTL simulation, in order to validate the behavior of what the
+C-synthesis produced and make sure it matches that of the original C++
+10. `vitis_hls -f run_hls_export.tcl`: exports the results of the C-synthesis as an IP
+core, and more importantly for us, runs an out-of-context implementation, which includes a timing analysis (this is generally much
+more accurate than the timing analysis HLS tries to do during C-synthesis)
+- The output of this can be accessed later at `MET/test/proj_APd_metalgo/solution/impl/report/vhdl`
 
 # Setup (do only once) instructions from A.H. 
 To log in, you'll first SSH into one of the login nodes,
