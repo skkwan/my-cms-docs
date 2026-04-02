@@ -2,7 +2,7 @@
 
 1. SSH into one of the login nodes, culogin01.colorado.edu, culogin02.colorado.edu, or culogin03.colorado.edu
 2. SSH into torreys: `ssh skkwan@torreys.colorado.edu` (same password as above)
-3. This is already in `~/.bashrc` so you don't need to do this manually, but `source ~/bin/setup.sh` (sets up version 2022.2)
+3. This is already in `~/.bashrc` so you don't need to do this manually, but `source ~/bin/setup.sh 2022.2` (sets up version 2022.2)
 4. `cd /nfs/data41/skkwan/LibHLS/Modules/MET/test`
 5. `python3 setup_tcl.py`
 6. `vitis_hls -f run_hls_make.tcl`: makes the Vitis HLS project that is used by all the
