@@ -77,3 +77,63 @@ C-synthesis produced and make sure it matches that of the original C++
 core, and more importantly for us, runs an out-of-context
 implementation, which includes a timing analysis (this is generally much
 more accurate than the timing analysis HLS tries to do during C-synthesis)
+
+
+## Vivado firmware steps
+1. I copied the `gtt` fresh repository from Andrew since I can't clone it yet.
+2. Build the ApX VU13P jet/met project:
+```bash
+cd /nfs/data41/skkwan/gtt/top/apx/gtt_vu13p_jet_met
+# I got an exit message telling me to make this directory:
+mkdir /nfs/data41/skkwan/gtt/build
+make -j 8 sources
+```
+Opening [https://gitlab.cern.ch/cms-cactus/phase2/firmware/gtt/-/blob/master/top/apx/gtt_vu13p_jet_met/Makefile?ref_type=heads](the gtt_vu13p_jet_met/Makefile) shows the line 
+```makefile
+target: bit
+```
+which means that running `make` without a target will default to `bit`. Since we ran `make sources`, tracing that back through [https://github.com/slaclab/ruckus/blob/main/system_vivado.mk](Ruckus's system_vivado.mk) points to 
+
+I initially got these commands from suggestions from Copilot, but if I trace back to the template makefile linked in [https://github.com/slaclab/ruckus/blob/main/system_vivado.mk](Ruckus's system_vivado.mk), I can see that there are blocks for `xsim `, `syn`, and `bit` (grouped with `bit mcs prom`)
+
+3. Run the RTL simulation. This seems to take quite a while, I added the `-j 8` command.
+```bash
+make -C /nfs/data41/skkwan/gtt/top/apx/gtt_vu13p_jet_met xsim -j 8
+```
+It finished with this: `INFO: xsimkernel Simulation Memory Usage: 312248 KB (Peak: 312248 KB), Simulation CPU Usage: 23350 ms`
+
+The simulation configuration file is in `gtt/top/apx/gtt_vu13p_jet_met/cfg/sim_config.tcl`. It says which simulation input file to use (`$::TOP_DIR/submodules/Data/Emulation/TTbarPU200/APx/L1GTTInputFile_0_sidebandoff_staggered.txt`), and where the output file should go (`$::PROJ_DIR/out.txt` which evaluates to `top/apx/gtt_vu13p_jet_met/cfg/out.txt`).
+
+I saw a new folder created: `/nfs/data41/skkwan/gtt/build/xF13P_jet_met_top/xF13P_jet_met_top_project.sim/sim_1/behav/xsim/xsim.dir/`. `algoTopWrapper_tb_behav` seems to be the most interesting sub-folder.
+
+4. Synthesize the Vivado design: lots of printouts, also takes a while. There was a resource usage table but it went by really fast. 
+```bash
+make -C /nfs/data41/skkwan/gtt/top/apx/gtt_vu13p_jet_met syn -j 8
+```
+One of the printouts was:
+```bash
+VHDL Output written to : /nfs/data41/skkwan/gtt/build/xF13P_jet_met_top/xF13P_jet_met_top_project.gen/sources_1/bd/axi_ic_lite/synth/axi_ic_lite.vhd
+VHDL Output written to : /nfs/data41/skkwan/gtt/build/xF13P_jet_met_top/xF13P_jet_met_top_project.gen/sources_1/bd/axi_ic_lite/sim/axi_ic_lite.vhd
+VHDL Output written to : /nfs/data41/skkwan/gtt/build/xF13P_jet_met_top/xF13P_jet_met_top_project.gen/sources_1/bd/axi_ic_lite/hdl/axi_ic_lite_wrapper.vhd
+```
+
+5. Implementation into a bitstream
+```bash
+make -C /nfs/data41/skkwan/gtt/top/apx/gtt_vu13p_jet_met bit -j 8
+```
+The printouts end in this:
+```bash
+# }
+Bit file copied to /nfs/data41/skkwan/gtt/top/apx/gtt_vu13p_jet_met/images/xF13P_jet_met_top-0x00000001-20261005104654-skkwan-cc470eb.bit
+No Debug Probes found
+INFO: [Project 1-1918] Creating Hardware Platform: /nfs/data41/skkwan/gtt/top/apx/gtt_vu13p_jet_met/images/xF13P_jet_met_top-0x00000001-20261005104654-skkwan-cc470eb.xsa ...
+INFO: [Project 1-1943] The Hardware Platform can be used for Hardware
+INFO: [Project 1-1941] Successfully created Hardware Platform: /nfs/data41/skkwan/gtt/top/apx/gtt_vu13p_jet_met/images/xF13P_jet_met_top-0x00000001-20261005104654-skkwan-cc470eb.xsa
+INFO: [Hsi 55-2053] elapsed time for repository (/nfs/data41/software/Xilinx/Vivado/2022.2/data/embeddedsw) loading 3 seconds
+write_hw_platform: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 2255.887 ; gain = 0.000 ; free physical = 28269 ; free virtual = 37280
+# SourceTclFile ${VIVADO_DIR}/post_build.tcl
+# close_project
+# exit 0
+INFO: [Common 17-206] Exiting Vivado at Mon Oct  5 10:53:46 2026...
+make: Leaving directory `/nfs/data41/skkwan/gtt/top/apx/gtt_vu13p_jet_met'
+```
